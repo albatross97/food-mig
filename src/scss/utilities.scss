@@ -130,3 +130,19 @@ h3 {
 .u-red {
   color: var(--primary-dark);
 }
+
+.progressMainWrapper {
+  background-color: var(--grey-light);
+  height: 0.5rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+  width: 100vw;
+}
+
+.progressMainStyle {
+  height: 0.5rem;
+  background-color: var(--primary-dark);
+}
