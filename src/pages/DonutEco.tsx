@@ -10,7 +10,7 @@ const Square = ({ color, width }: SquareProps) => (
   <div style={{ backgroundColor: color, width: width, height: width }}></div>
 );
 
-const Eco = () => {
+const DonutEco = () => {
   return (
     <div className="u-section donut">
       <div className="u-container">
@@ -74,4 +74,4 @@ const Eco = () => {
   );
 };
 
-export default Eco;
+export default DonutEco;

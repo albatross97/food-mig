@@ -8,6 +8,7 @@
 @import 'pages/summary';
 @import 'components/card';
 @import 'components/footer';
+@import 'components/dotchart';
 
 :root {
   // === COLORS PRIMARY
@@ -34,7 +35,7 @@
   --s: 8px;
   --sm: 14px;
   --m: 16px;
-  --l: 24px;
+  --l: 28px;
   --xl: 40px;
   --xxl: 60px;
   --section-padding: 10%;
@@ -83,6 +84,7 @@ h3 {
 
 h4 {
   font-size: var(--l);
+  font-family: var(--font-title);
   font-weight: 700;
 }
 

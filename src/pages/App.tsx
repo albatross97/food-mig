@@ -5,13 +5,15 @@ import '../scss/utilities.scss';
 
 import Title from './Title';
 import IntroMap from './IntroMap';
-import ProgressBar from '../components/ProgressBar';
 import Food2Mig from './Food2Mig';
 import Mig2Action from './Mig2Action';
 import Mig2Eco from './Mig2Eco';
-import Eco from './Eco';
+import DonutEco from './DonutEco';
 import Summary from './Summary';
+
+import ProgressBar from '../components/ProgressBar';
 import Footer from '../components/Footer';
+import DotSurvey from '../scrolls/DotSurvey';
 
 function App() {
   return (
@@ -20,9 +22,10 @@ function App() {
       <Title />
       <IntroMap />
       <Food2Mig />
+      <DotSurvey />
       <Mig2Action />
       <Mig2Eco />
-      <Eco />
+      <DonutEco />
       <Summary />
       <Footer />
     </div>

@@ -1,0 +1,47 @@
+.dot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h4 {
+    margin-bottom: 0;
+  }
+
+  .survey-container {
+    position: relative;
+    margin-top: var(--xl);
+
+    #tooltip-survey {
+      pointer-events: none;
+      position: absolute;
+      color: var(--primary-dark);
+      transition: opacity 0.5s;
+
+      .survey-person {
+        font-size: 22px;
+        line-height: 1.5em;
+        font-weight: 700;
+        font-family: var(--font-subtitle);
+      }
+
+      .survey-detail {
+        font-size: var(--m);
+        line-height: 1.1em;
+        font-family: var(--font-subtitle);
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+    .hidden {
+      opacity: 0;
+    }
+    .cariLabel2 {
+      pointer-events: none;
+      font-family: var(--font-title);
+      font-size: var(--l);
+      font-weight: 400;
+    }
+  }
+}
