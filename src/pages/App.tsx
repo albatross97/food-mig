@@ -5,6 +5,11 @@ import '../scss/utilities.scss';
 import Title from './Title';
 import IntroMap from './IntroMap';
 import ProgressBar from '../components/ProgressBar';
+import Food2Mig from './Food2Mig';
+import Mig2Action from './Mig2Action';
+import Mig2Eco from './Mig2Eco';
+import Summary from './Summary';
+import Footer from '../components/Footer';
 
 function App() {
   return (
@@ -12,6 +17,11 @@ function App() {
       <ProgressBar />
       <Title />
       <IntroMap />
+      <Food2Mig />
+      <Mig2Action />
+      <Mig2Eco />
+      <Summary />
+      <Footer />
     </div>
   );
 }

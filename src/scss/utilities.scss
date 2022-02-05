@@ -4,8 +4,9 @@
 
 @import 'pages/title';
 @import 'pages/introMap';
-
+@import 'pages/summary';
 @import 'components/card';
+@import 'components/footer';
 
 :root {
   // === COLORS PRIMARY
@@ -36,14 +37,17 @@
   --xl: 40px;
   --xxl: 60px;
   --section-padding: 10%;
+  --card-width: 50%;
 }
 
 @media (max-width: 600px) {
   :root {
+    --m: 14px;
     --l: 20px;
     --xl: 30px;
     --xxl: 40px;
     --section-padding: 5%;
+    --card-width: 80%;
   }
 
   small {
@@ -60,6 +64,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-main);
+  font-size: var(--m);
   font-weight: 300;
   line-height: var(--l);
 }

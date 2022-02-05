@@ -3,13 +3,12 @@
   pointer-events: none;
   padding-top: 15%;
   z-index: 2;
-  width: 50%;
-
-  span {
-    font-weight: 500;
-  }
+  width: var(--card-width);
 
   p {
     margin-left: var(--xl);
+    span {
+      font-weight: 500;
+    }
   }
 }
