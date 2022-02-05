@@ -1,0 +1,25 @@
+.map-chart {
+  position: absolute;
+  right: 0;
+}
+
+#tooltip-map {
+  position: absolute;
+  max-width: 300px;
+  padding: var(--s) var(--m);
+
+  background: white;
+  box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+
+  color: var(--primary-dark);
+  border-left: thick solid var(--primary-dark);
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.hidden {
+  display: none;
+}

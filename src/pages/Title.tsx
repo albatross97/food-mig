@@ -1,4 +1,4 @@
-const Intro = () => {
+const Title = () => {
   return (
     <div className="u-section intro">
       <div className="header-container">
@@ -14,4 +14,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default Title;

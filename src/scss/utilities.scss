@@ -1,8 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yrsa:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
-@import 'pages/intro';
+@import 'pages/title';
+@import 'pages/introMap';
+
+@import 'components/card';
 
 :root {
   // === COLORS PRIMARY
@@ -30,14 +33,16 @@
   --sm: 12px;
   --m: 16px;
   --l: 24px;
-  --xl: 60px;
+  --xl: 40px;
+  --xxl: 60px;
   --section-padding: 10%;
 }
 
 @media (max-width: 600px) {
   :root {
     --l: 20px;
-    --xl: 40px;
+    --xl: 30px;
+    --xxl: 40px;
     --section-padding: 5%;
   }
 
@@ -55,10 +60,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-main);
+  font-weight: 300;
+  line-height: var(--l);
 }
 
 form {
   flex-grow: 1;
+}
+
+h3 {
+  font-size: var(--xl);
+  line-height: var(--xl);
+  font-family: var(--font-title);
 }
 
 .u-flex {
@@ -111,4 +124,9 @@ form {
 .u-section {
   height: 100vh;
   padding: 0 var(--section-padding);
+  position: relative;
+}
+
+.u-red {
+  color: var(--primary-dark);
 }

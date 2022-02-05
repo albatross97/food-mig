@@ -1,0 +1,15 @@
+.card {
+  position: absolute;
+  pointer-events: none;
+  padding-top: 15%;
+  z-index: 2;
+  width: 50%;
+
+  span {
+    font-weight: 500;
+  }
+
+  p {
+    margin-left: var(--xl);
+  }
+}
