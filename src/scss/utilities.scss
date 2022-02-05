@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yrsa:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
 @import 'pages/title';
 @import 'pages/introMap';
+@import 'pages/eco';
 @import 'pages/summary';
 @import 'components/card';
 @import 'components/footer';
@@ -31,7 +32,7 @@
   // === FONT SIZE
   --xs: 4px;
   --s: 8px;
-  --sm: 12px;
+  --sm: 14px;
   --m: 16px;
   --l: 24px;
   --xl: 40px;
@@ -42,6 +43,7 @@
 
 @media (max-width: 600px) {
   :root {
+    --sm: 12px;
     --m: 14px;
     --l: 20px;
     --xl: 30px;
@@ -77,6 +79,11 @@ h3 {
   font-size: var(--xl);
   line-height: var(--xl);
   font-family: var(--font-title);
+}
+
+h4 {
+  font-size: var(--l);
+  font-weight: 700;
 }
 
 .u-flex {
@@ -127,7 +134,8 @@ h3 {
 }
 
 .u-section {
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   padding: 0 var(--section-padding);
   position: relative;
 }
