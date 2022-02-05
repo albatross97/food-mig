@@ -1,26 +1,32 @@
-.map-chart {
-  position: absolute;
-  right: 0;
-}
+.map-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 
-#tooltip-map {
-  position: absolute;
-  max-width: 300px;
-  width: 50%;
-  padding: var(--s) var(--m);
-
-  background: white;
-  box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.5);
-  z-index: 100;
-
-  color: var(--primary-dark);
-  border-left: thick solid var(--primary-dark);
-
-  span {
-    font-weight: bold;
+  .map-svg {
+    position: absolute;
+    right: 0;
   }
-}
 
-.hidden {
-  display: none;
+  #tooltip-map {
+    position: absolute;
+    max-width: 300px;
+    width: 50%;
+    padding: var(--s) var(--m);
+
+    background: white;
+    box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+
+    color: var(--primary-dark);
+    border-left: thick solid var(--primary-dark);
+    pointer-events: none;
+
+    span {
+      font-weight: bold;
+    }
+  }
+  .hidden {
+    display: none;
+  }
 }

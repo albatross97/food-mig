@@ -136,8 +136,11 @@ h4 {
 .u-section {
   height: 100%;
   min-height: 100vh;
-  padding: 0 var(--section-padding);
   position: relative;
+}
+
+.u-container {
+  padding: 0 var(--section-padding);
 }
 
 .u-red {

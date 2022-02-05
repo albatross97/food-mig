@@ -22,20 +22,22 @@ const MapChart = () => {
       ),
       d3.csv(rawdata),
     ]).then(([data, migdata]) => {
+      // Svg
       const svg = d3
         .select(svgRef.current)
         .attr('width', WIDTH)
         .attr('height', HEIGHT)
-        .append('g')
-        .attr('transform', `translate(${(WIDTH * 7) / 8}, ${HEIGHT / 6})`);
-
+        .append('g');
       svg.selectAll('*').remove();
 
-      // Map and projection
+      // Projection
+      const S = WIDTH > 600 ? HEIGHT / 0.4 : HEIGHT / 0.7;
+      const W = WIDTH > 600 ? WIDTH / 0.75 : WIDTH / 0.55;
+      const H = WIDTH > 600 ? HEIGHT / 1.7 : HEIGHT / 1.5;
       const projection = d3
         .geoNaturalEarth1()
-        .scale(WIDTH / 0.6 / Math.PI)
-        .translate([WIDTH / 2, HEIGHT / 2]);
+        .scale(S / Math.PI)
+        .translate([W, H]);
 
       // MOUSE EVENT
       const tooltip = d3.select('#tooltip-map');
@@ -57,8 +59,17 @@ const MapChart = () => {
               ? `<p>Among all migrants to the <span class="big">${d.properties.name}</span>, <span class="big">${rate}% </span>are from <span>El Salvador, Guatemala, and Honduras</span>.</p>`
               : `<p>Around <span class="big">${rate}%</span> of the population of <span class="big">${d.properties.name}</span> are migrants to the US by 2020.<p>`
           )
-          .style('left', `${event.clientX - 300}px`)
+          .style('left', () => {
+            let tooltipW = tooltipRef.current.clientWidth;
+            if (event.clientX < tooltipW && WIDTH - event.clientX > tooltipW)
+              return `${event.clientX}px`;
+            return `${event.clientX - tooltipW}px`;
+          })
           .style('top', () => {
+            let tooltipH = tooltipRef.current.clientHeight;
+
+            if (HEIGHT - event.clientY < tooltipH)
+              return `${event.clientY - tooltipH}px`;
             return `${event.clientY}px`;
           });
       };
@@ -93,10 +104,10 @@ const MapChart = () => {
   }, []);
 
   return (
-    <>
+    <div className="map-container">
       <div id="tooltip-map" className="hidden" ref={tooltipRef}></div>
-      <svg className="map-chart" ref={svgRef}></svg>
-    </>
+      <svg className="map-svg" ref={svgRef}></svg>
+    </div>
   );
 };
 
