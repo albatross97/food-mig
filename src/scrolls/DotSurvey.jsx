@@ -1,4 +1,6 @@
 import DotChart from '../components/DotChart';
+import Test from '../components/Test';
+
 import { useState, useEffect } from 'react';
 import * as d3 from 'd3';
 import rawdata from '../data/dot.csv';
@@ -13,12 +15,7 @@ const DotSurvey = () => {
 
   useEffect(() => {
     d3.csv(rawdata).then((rawdata) => {
-      const newdata = rawdata.slice(0, 300).map(function (d) {
-        return {
-          ...d,
-          radius: 3,
-        };
-      });
+      const newdata = rawdata.slice(0, 1000);
       setData(newdata);
     });
   }, []);
@@ -34,7 +31,7 @@ const DotSurvey = () => {
 
         <div className="btn-group" onChange={handleStep}>
           <label>
-            <input type="radio" value="1" name="tag" required />
+            <input type="radio" value="1" name="tag" />
             <span className="1">step1</span>
           </label>
           <label>
@@ -46,8 +43,9 @@ const DotSurvey = () => {
             <span className="3">step3</span>
           </label>
         </div>
+        <Test nodes={data} step={step} />
       </div>
-      <DotChart data={data} step={step} />
+      {/* <DotChart data={data} step={step} /> */}
     </div>
   );
 };
