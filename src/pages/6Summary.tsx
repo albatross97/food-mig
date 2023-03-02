@@ -1,7 +1,7 @@
 const Summary = () => {
   return (
-    <div className="u-section summary">
-      <div className="u-container">
+    <div className="u-section">
+      <div className="u-container summary">
         <div className="summary-sub left">
           <h3>Summary</h3>
           <strong>Limited Impact of Food Security</strong>
@@ -68,8 +68,7 @@ const Summary = () => {
               <li>
                 <a
                   href="https://www.fao.org/faostat/en/#data/FS"
-                  className="u-link"
-                >
+                  className="u-link">
                   Prevalence of moderate and severe food insecurity in the total
                   population by nations, 2020
                 </a>
@@ -77,8 +76,7 @@ const Summary = () => {
               <li>
                 <a
                   href="https://www.un.org/development/desa/pd/content/international-migrant-stock"
-                  className="u-link"
-                >
+                  className="u-link">
                   International Migrant Stock, Population Division, United
                   Nations, 2020
                 </a>

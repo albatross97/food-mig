@@ -1,13 +1,4 @@
 .map-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-
-  .map-svg {
-    position: absolute;
-    right: 0;
-  }
-
   #tooltip-map {
     position: absolute;
     max-width: 300px;
@@ -19,14 +10,11 @@
     z-index: 100;
 
     color: var(--primary-dark);
-    border-left: thick solid var(--primary-dark);
+    border-left: var(--xs) solid var(--primary-dark);
     pointer-events: none;
 
     span {
-      font-weight: bold;
+      font-weight: 800;
     }
-  }
-  .hidden {
-    display: none;
   }
 }

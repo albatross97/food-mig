@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
-
 import './App.scss';
 import '../scss/utilities.scss';
 
-import Title from './Title';
-import IntroMap from './IntroMap';
-import Food2Mig from './Food2Mig';
-import Mig2Action from './Mig2Action';
-import Mig2Eco from './Mig2Eco';
-import DonutEco from './DonutEco';
-import Summary from './Summary';
+import Title from './0Title';
+import IntroMap from './1Map';
+import Food2Mig from './2Food2Mig';
+import Mig2Action from './3Mig2Action';
+import Mig2Eco from './4Mig2Eco';
+import Grid from '../scrolls/4Grid';
+import DonutEco from './5Donut';
+import Summary from './6Summary';
 
 import ProgressBar from '../components/ProgressBar';
-import Footer from '../components/Footer';
+import Footer from './7Footer';
 import DotSurvey from '../scrolls/DotSurvey';
 
 function App() {
@@ -24,6 +23,7 @@ function App() {
       <Food2Mig />
       <DotSurvey />
       <Mig2Action />
+      <Grid />
       <Mig2Eco />
       <DonutEco />
       <Summary />

@@ -1,11 +1,16 @@
 import * as d3 from 'd3';
-import React, { useRef, useEffect } from 'react';
-
-// TODO: Trigger transition on scrolled to section
-// TODO: Add hover tooltips
+import { useRef, useEffect } from 'react';
+import { useIntersection } from 'react-use';
 
 const DonutChart = ({ dataArray, colorsArray }) => {
+  const intersectionRef = useRef(null);
   const svgRef = useRef(null);
+
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3,
+  });
 
   const generateDonutChart = (
     data,
@@ -68,27 +73,27 @@ const DonutChart = ({ dataArray, colorsArray }) => {
     const arc = d3.arc().innerRadius(innerRadius).outerRadius(outerRadius);
     const arcLabel = d3.arc().innerRadius(labelRadius).outerRadius(labelRadius);
 
-    d3.select(svgRef.current)
+    const svg = d3
+      .select(svgRef.current)
       .attr('width', width)
       .attr('height', height)
       .attr('viewBox', [-width / 2, -height / 2, width, height])
-      .attr('style', 'max-width: 100%; height: auto; height: intrinsic;')
-      .append('g')
-      .attr('stroke', stroke)
-      .attr('stroke-width', strokeWidth)
-      .attr('stroke-linejoin', 'round')
+      .attr('style', 'max-width: 100%; height: auto; height: intrinsic;');
+
+    svg.selectAll('*').remove();
+
+    const path = svg
       .selectAll('path')
       .data(arcs)
       .join('path')
       .attr('fill', (d) => color(N[d.data]))
-      .attr('d', arc)
-      .append('title')
-      .text((d) => title(d.data));
+      .attr('d', arc);
+    // .append('title')
+    // .text((d) => title(d.data));
 
-    const path = d3.select(svgRef.current).selectAll('path');
     path
       .transition()
-      .duration(480)
+      .duration(1000)
       .ease(d3.easeLinear)
       .attrTween('d', (d) => {
         const i = d3.interpolate(d.startAngle + 0.1, d.endAngle);
@@ -100,8 +105,6 @@ const DonutChart = ({ dataArray, colorsArray }) => {
 
     d3.select(svgRef.current)
       .append('g')
-      .attr('font-family', 'sans-serif')
-      .attr('font-size', 16)
       .attr('text-anchor', 'middle')
       .selectAll('text')
       .data(arcs)
@@ -131,9 +134,13 @@ const DonutChart = ({ dataArray, colorsArray }) => {
       stroke: 'none',
       title: (d) => `${d.value}%`,
     });
-  }, [dataArray, colorsArray]);
+  }, [dataArray, colorsArray, intersection]);
 
-  return <svg className="donut-chart" ref={svgRef}></svg>;
+  return (
+    <div ref={intersectionRef}>
+      <svg className="donut-chart" ref={svgRef}></svg>
+    </div>
+  );
 };
 
 export default DonutChart;

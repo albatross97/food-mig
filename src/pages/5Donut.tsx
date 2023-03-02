@@ -1,4 +1,3 @@
-import React, { memo } from 'react';
 import DonutChart from '../components/DonutChart';
 
 type SquareProps = {

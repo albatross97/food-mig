@@ -7,7 +7,6 @@ const Title = () => {
           A Data Visualization Story in Northern Triangle Region of Central
           America
         </p>
-
         <small>SCROLL TO CONTINUE</small>
       </div>
     </div>

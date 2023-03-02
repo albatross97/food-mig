@@ -40,46 +40,44 @@ const MapChart = () => {
         .translate([W, H]);
 
       // MOUSE EVENT
-      const tooltip = d3.select('#tooltip-map');
+      const tooltip = d3.select('#tooltip-map').style('opacity', 0);
 
       const mouseover = function (event, d) {
-        tooltip.classed('hidden', false);
-
-        d3.select(this).attr('fill', (d) =>
-          NT.includes(d.id) ? RED.SELECT : GRAY.SELECT
-        );
-      };
-
-      const mousemove = function (event, d) {
         let rate = migdata.find((e) => e['Alpha-3 code'] == d.id).rate;
-
         tooltip
           .html(
             d.properties.name == 'USA'
-              ? `<p>Among all migrants to the <span class="big">${d.properties.name}</span>, <span class="big">${rate}% </span>are from <span>El Salvador, Guatemala, and Honduras</span>.</p>`
-              : `<p>Around <span class="big">${rate}%</span> of the population of <span class="big">${d.properties.name}</span> are migrants to the US by 2020.<p>`
+              ? `<p>Among all migrants to the <span>${d.properties.name}</span>, <span>${rate}% </span>are from <span>El Salvador, Guatemala, and Honduras</span>.</p>`
+              : `<p>Around <span>${rate}%</span> of the population of <span>${d.properties.name}</span> are migrants to the US by 2020.<p>`
           )
+          .transition()
+          .duration(100)
+          .style('opacity', 1);
+
+        d3.select(this)
+          .transition()
+          .duration(300)
+          .attr('fill', (d) => (NT.includes(d.id) ? RED.SELECT : GRAY.SELECT));
+      };
+
+      const mousemove = function (event, d) {
+        tooltip
           .style('left', () => {
             let tooltipW = tooltipRef.current.clientWidth;
-            if (event.clientX < tooltipW && WIDTH - event.clientX > tooltipW)
-              return `${event.clientX}px`;
-            return `${event.clientX - tooltipW}px`;
+            return `${event.pageX - tooltipW}px`;
           })
-          .style('top', () => {
-            let tooltipH = tooltipRef.current.clientHeight;
-
-            if (HEIGHT - event.clientY < tooltipH)
-              return `${event.clientY - tooltipH}px`;
-            return `${event.clientY}px`;
-          });
+          .style('top', () => `${event.pageY}px`);
       };
 
       const mouseout = function (event, d) {
-        tooltip.classed('hidden', true);
+        tooltip.transition().duration(100).style('opacity', 0);
 
-        d3.select(this).attr('fill', (d) =>
-          NT.includes(d.id) ? RED.REGULAR : GRAY.REGULAR
-        );
+        d3.select(this)
+          .transition()
+          .duration(300)
+          .attr('fill', (d) =>
+            NT.includes(d.id) ? RED.REGULAR : GRAY.REGULAR
+          );
       };
 
       // ENTER

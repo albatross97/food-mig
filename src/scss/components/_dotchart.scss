@@ -21,13 +21,13 @@
         font-size: 22px;
         line-height: 1.5em;
         font-weight: 700;
-        font-family: var(--font-subtitle);
+        font-family: var(--font-title);
       }
 
       .survey-detail {
         font-size: var(--m);
         line-height: 1.1em;
-        font-family: var(--font-subtitle);
+        font-family: var(--font-title);
       }
 
       span {
@@ -37,7 +37,9 @@
     .hidden {
       opacity: 0;
     }
-    .cariLabel2 {
+    .migLabel2,
+    .cariLabel2,
+    .surveyLabel2 {
       pointer-events: none;
       font-family: var(--font-title);
       font-size: var(--l);
