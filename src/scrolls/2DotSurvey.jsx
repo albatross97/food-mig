@@ -1,5 +1,4 @@
 import DotChart from '../components/DotChart';
-import Test from '../components/Test';
 
 import { useState, useEffect } from 'react';
 import * as d3 from 'd3';
@@ -43,9 +42,8 @@ const DotSurvey = () => {
             <span className="3">step3</span>
           </label>
         </div>
-        <Test nodes={data} step={step} />
+        <DotChart nodes={data} step={step} />
       </div>
-      {/* <DotChart data={data} step={step} /> */}
     </div>
   );
 };

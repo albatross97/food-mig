@@ -9,7 +9,13 @@
 
   .survey-container {
     position: relative;
-    margin-top: var(--xl);
+    // margin-top: var(--xl);
+    display: flex;
+    justify-content: center;
+
+    .surveyline {
+      pointer-events: none;
+    }
 
     #tooltip-survey {
       pointer-events: none;

@@ -12,7 +12,7 @@ import Summary from './6Summary';
 
 import ProgressBar from '../components/ProgressBar';
 import Footer from './7Footer';
-import DotSurvey from '../scrolls/DotSurvey';
+import DotSurvey from '../scrolls/2DotSurvey';
 
 function App() {
   return (
