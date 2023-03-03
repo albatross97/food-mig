@@ -1,0 +1,24 @@
+#food-container {
+  #tooltip-food {
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 0.3s;
+    font-size: var(--sm);
+    line-height: 20px;
+    padding: var(--s) var(--m);
+    background: var(--white);
+    box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.5);
+    border-left: var(--xs) solid var(--primary-dark);
+    z-index: 100;
+
+    .moderate {
+      color: var(--yellow-dark);
+      font-weight: bold;
+    }
+
+    .severe {
+      color: var(--primary-dark);
+      font-weight: bold;
+    }
+  }
+}

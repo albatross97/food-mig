@@ -8,6 +8,7 @@
 @import 'pages/summary';
 @import 'components/card';
 @import 'components/dotchart';
+@import 'components/foodchart';
 
 :root {
   // === COLORS PRIMARY
@@ -23,6 +24,7 @@
   --white: #ffffff;
   --grey-dark: #818181;
   --grey-light: #efefef;
+  --yellow-dark: #efaf34;
 
   // === FONT
   --font-title: 'Yrsa', serif;

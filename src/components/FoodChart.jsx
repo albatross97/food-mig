@@ -12,7 +12,7 @@ const COUNTRIES = [
   'Guatemala',
   'United States of America',
 ];
-const CIRCLE = { REGULAR: 3, SELECT: 5 };
+const CIRCLE = { REGULAR: 3, SELECT: 4 };
 const LINE = { REGULAR: 1, SELECT: 3 };
 const COLOR = {
   GREEN: '#6bbaad', //GREEN
@@ -56,6 +56,42 @@ const FoodChart = ({ step }) => {
   }, []);
   useEffect(() => {
     food_g.selectAll('*').remove();
+
+    const mouseover = (event, d) => {
+      let tooltipW = tooltipRef.current.clientWidth;
+      let tooltipH = tooltipRef.current.clientHeight;
+      let moderateY = food_g
+        .select(`.line-${d.index}`)
+        .node()
+        .getBoundingClientRect()['y'];
+
+      tooltip
+        .html(
+          `<div><strong> ${d.country} </strong></div>
+           <div> Moderate Hunger: <span class='moderate'>${d.moderate}%</span> </div>
+           <div> Severe Hunger: <span class='severe'>${d.severe}%</span> </div>`
+        )
+        .style('left', `${event.clientX - tooltipW / 2}px`)
+        .style('top', `${window.pageYOffset + moderateY - tooltipH - 30}px`)
+        .classed('hidden', false);
+      food_g
+        .selectAll(`.circle-${d.index}`)
+        .style('r', CIRCLE.SELECT)
+        .style('stroke', COLOR.TEXT)
+        .attr('stroke-width', LINE.REGULAR);
+      food_g.selectAll(`line-${d.index}`).style('stroke', COLOR.TEXT);
+      label.transition().duration(300).style('opacity', 0);
+    };
+
+    const mouseout = (event, d) => {
+      tooltip.classed('hidden', true);
+      food_g
+        .selectAll(`.circle-${d.index}`)
+        .style('r', CIRCLE.REGULAR)
+        .style('stroke', 'transparent');
+
+      label.transition().ease(d3.easeCubicIn).duration(300).style('opacity', 1);
+    };
 
     const y = d3
       .scaleLinear()
@@ -109,15 +145,33 @@ const FoodChart = ({ step }) => {
       .data(data)
       .enter()
       .append('line')
-      .attr('class', (d) => `bellchart-${d.index}`)
+      .attr('class', (d) => `line-${d.index}`)
       .attr('x1', (d) => x(d.country))
       .attr('x2', (d) => x(d.country))
-      .attr('y1', (d) => y(d.moderate))
+      .attr('y1', (d) => y(d.severe))
       .attr('y2', (d) => y(d.severe))
       .attr('stroke', COLOR.GRAY)
-      .attr('stroke-width', (d) => {
-        return COUNTRIES.includes(d.country) ? LINE.SELECT : LINE.REGULAR;
-      });
+      .attr('stroke-width', (d) =>
+        COUNTRIES.includes(d.country) ? LINE.SELECT : LINE.REGULAR
+      )
+      .on('mouseover', mouseover)
+      .on('mouseout', mouseout);
+
+    const dashlines = food_g
+      .append('g')
+      .attr('class', 'dashlines')
+      .selectAll('line')
+      .data(data.filter((d) => COUNTRIES.includes(d.country)))
+      .join('line')
+      .attr('x1', (d) => x(d.country))
+      .attr('x2', (d) => x(d.country))
+      .attr('y1', (d) =>
+        d.country === 'El Salvador' ? y(d.moderate) : y(d.moderate) - 30
+      )
+      .attr('y2', (d) => y(d.severe))
+      .attr('stroke', COLOR.TEXT)
+      .style('opacity', 0.3)
+      .style('stroke-dasharray', '3, 3');
 
     const circleModerate = food_g
       .append('g')
@@ -125,13 +179,16 @@ const FoodChart = ({ step }) => {
       .selectAll('circle')
       .data(data)
       .join('circle')
+      .attr('class', (d) => `circle-${d.index}`)
       .attr('cx', (d) => x(d.country))
       .attr('cy', (d) => y(d.moderate))
       .style('fill', (d) =>
         COUNTRIES.includes(d.country) ? COLOR.YELLOW : COLOR.LIGHT_YELLOW
       )
       .attr('r', CIRCLE.REGULAR)
-      .style('opacity', 0);
+      .style('opacity', 0)
+      .on('mouseover', mouseover)
+      .on('mouseout', mouseout);
 
     const circleSevere = food_g
       .append('g')
@@ -139,6 +196,7 @@ const FoodChart = ({ step }) => {
       .selectAll('circle')
       .data(data)
       .join('circle')
+      .attr('class', (d) => `circle-${d.index}`)
       .attr('cx', (d) => x(d.country))
       .attr('cy', (d) => y(d.severe))
       .style('fill', COLOR.GRAY)
@@ -155,7 +213,7 @@ const FoodChart = ({ step }) => {
           ? y(d.moderate) - 10
           : d.country === 'Guatemala'
           ? y(d.moderate) - 40
-          : y(d.moderate) - 30
+          : y(d.moderate) - 35
       )
       .attr('x', (d) => x(d.country))
       .attr('text-anchor', 'middle')
@@ -207,8 +265,19 @@ const FoodChart = ({ step }) => {
 
       rank.transition().ease(d3.easeCubicIn).duration(500).style('opacity', 1);
     } else if (step == 3) {
+      lines
+        .transition()
+        .delay((d, i) => 500)
+        .ease(d3.easeCubicIn)
+        .duration(500)
+        .attr('y1', (d) => y(d.moderate))
+        .style('opacity', 1);
+
+      dashlines.style('opacity', 0);
+
       circleModerate
         .transition()
+        .delay((d, i) => 1000)
         .ease(d3.easeCubicIn)
         .duration(500)
         .style('opacity', 1);
