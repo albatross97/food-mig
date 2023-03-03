@@ -52,7 +52,7 @@ const Mig2Action = () => {
           </h3>
           <p>
             Instead of asking only the desire to migrate, we look into more
-            detailed aspects of migration other than intension, such as plan and
+            detailed aspects of migration other than intention, such as plan and
             preparation. These factors serve as a stronger indicator for the
             migration action. We explore the relationship of these factors with
             food security level.

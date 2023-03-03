@@ -13,7 +13,7 @@ const MapChart = () => {
   const svgRef = React.useRef(null);
   const svg = d3
     .select(svgRef.current)
-    .attr('viewBox', '0 0 900 500')
+    .attr('viewBox', '0 0 900 480')
     .attr('preserveAspectRatio', 'xMinYMin meet');
   const tooltip = d3.select(tooltipRef.current);
 

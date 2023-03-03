@@ -13,6 +13,7 @@ import Summary from './6Summary';
 import ProgressBar from '../components/ProgressBar';
 import Footer from './7Footer';
 import DotSurvey from '../scrolls/2DotSurvey';
+import FoodInsecure from '../scrolls/1Food';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <ProgressBar />
       <Title />
       <IntroMap />
+      <FoodInsecure />
       <Food2Mig />
       <DotSurvey />
       <Mig2Action />

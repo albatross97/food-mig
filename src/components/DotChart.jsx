@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 const DotChart = ({ nodes, step }) => {
-  const svgRef = React.useRef(null);
-  const tooltipRef = React.useRef(null);
+  const svgRef = useRef(null);
+  const tooltipRef = useRef(null);
 
   //d3 chart settings
   const width = 1000;
@@ -61,7 +61,7 @@ const DotChart = ({ nodes, step }) => {
   const tooltip = d3.select('#tooltip-survey').classed('hidden', true);
   const mouseover = function (event, d) {
     d3.select(this).attr('fill', '#ff6666').attr('r', 5);
-    console.log(d.x, event.layerX, event.pageX);
+    // console.log(d.x, event.layerX, event.pageX);
 
     tooltip
       .style('left', event.layerX + 15 + 'px')

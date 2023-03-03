@@ -6,9 +6,9 @@ const Grid = () => {
       <div className="u-container">
         <h4>Food security & migration intention</h4>
         {legend}
-      </div>
-      <div className="charts">
-        <GridChart />
+        <div className="charts">
+          <GridChart />
+        </div>
       </div>
     </div>
   );

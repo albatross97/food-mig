@@ -7,7 +7,7 @@ const Summary = () => {
           <strong>Limited Impact of Food Security</strong>
           <p>
             To conclude, food insecurity has limited impact on migration issue.
-            The correlation between food security and migration intension and
+            The correlation between food security and migration intention and
             action are not significant in these three countries.
           </p>
           <strong>Food Insecurity and Migration</strong>

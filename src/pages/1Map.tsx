@@ -14,8 +14,11 @@ const IntroMap = () => {
             the 1980s, and continued to increase in subsequent decades.
           </p>
           <p>
-            More recently, the number of immigrants{' '}
-            <span>–– from the three Northern Triangle nations rose by 25%</span>{' '}
+            <span>
+              More recently, the number of immigrants from the three Northern
+              Triangle nations –– El Salvador, Guatemala, and Honduras rose by
+              25%
+            </span>{' '}
             between 2007 and 2015. During that same period, the immigrant
             population from Mexico, the largest birth country for U.S.
             immigrants, declined 6%.

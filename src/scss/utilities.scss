@@ -38,7 +38,7 @@
   --xl: 40px;
   --xxl: 60px;
   --section-padding: 10%;
-  --card-width: 50%;
+  --card-width: 40%;
 }
 
 @media (max-width: 600px) {
@@ -169,4 +169,14 @@ strong {
 
 .hidden {
   opacity: 0;
+}
+
+.yaxis {
+  path {
+    display: none;
+  }
+
+  line {
+    stroke: var(--grey-light);
+  }
 }
