@@ -5,7 +5,7 @@
     transition: opacity 0.3s;
     font-size: var(--sm);
     line-height: 20px;
-    padding: var(--s) var(--m);
+    padding: var(--m) var(--m);
     background: var(--white);
     box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.5);
     border-left: var(--xs) solid var(--primary-dark);
@@ -19,6 +19,24 @@
     .severe {
       color: var(--primary-dark);
       font-weight: bold;
+    }
+  }
+}
+.legends-container {
+  display: flex;
+  justify-content: flex-end;
+  transition: opacity 1s;
+  .legends {
+    font-size: var(--sm);
+    line-height: 20px;
+    position: absolute;
+    .legend {
+      display: flex;
+      align-items: center;
+      .legend-circle {
+        border-radius: 50%;
+        margin-right: var(--xs);
+      }
     }
   }
 }

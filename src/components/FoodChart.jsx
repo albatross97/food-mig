@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import { useRef, useState, useEffect } from 'react';
 import fooddata from '../data/food-global.csv';
 
-const MARGIN = { TOP: 10, BOTTOM: 30, LEFT: 50, RIGHT: 40 };
+const MARGIN = { TOP: 10, BOTTOM: 30, LEFT: 50, RIGHT: 0 };
 const WIDTH = 1000 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 420 - MARGIN.TOP - MARGIN.BOTTOM;
 
@@ -22,6 +22,19 @@ const COLOR = {
   LIGHT_RED: '#EBD7D0',
   GRAY: '#e0e0e0',
   TEXT: '#808080',
+};
+
+const Legend = ({ content }) => {
+  const color = content === 'severe' ? COLOR.RED : COLOR.YELLOW;
+  return (
+    <div className="legend">
+      <div
+        className="legend-circle"
+        style={{ backgroundColor: color, width: 10, height: 10 }}
+      />
+      <span>{content}</span>
+    </div>
+  );
 };
 
 const FoodChart = ({ step }) => {
@@ -301,4 +314,4 @@ const FoodChart = ({ step }) => {
     </div>
   );
 };
-export default FoodChart;
+export { FoodChart, Legend };

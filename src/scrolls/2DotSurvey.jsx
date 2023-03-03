@@ -26,7 +26,7 @@ const DotSurvey = () => {
           <span className="u-red">Survey data: </span> food security & Migration
           Intention
         </h4>
-        <p> {'>>'} Hover a dot to view survey participant's information</p>
+        <p> {'>>'} Hover a dot to view a survey participant's information</p>
 
         <div className="btn-group" onChange={handleStep}>
           <label>
