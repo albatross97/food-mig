@@ -15,10 +15,11 @@ const COUNTRIES = [
 const CIRCLE = { REGULAR: 3, SELECT: 5 };
 const LINE = { REGULAR: 1, SELECT: 3 };
 const COLOR = {
-  MODERATE_S: '#6bbaad',
-  SEVERE_S: '#eb5832',
-  MODERATE_R: '#DFEBE8',
-  SEVERE_R: '#EBD7D0',
+  GREEN: '#6bbaad', //GREEN
+  RED: '#eb5832', //RED
+  YELLOW: '#EFAF34',
+  LIGHT_YELLOW: '#F2E6CD',
+  LIGHT_RED: '#EBD7D0',
   GRAY: '#e0e0e0',
   TEXT: '#808080',
 };
@@ -88,7 +89,7 @@ const FoodChart = ({ step }) => {
       .attr('font-size', '12px')
       .style('fill', COLOR.TEXT)
       .style('text-anchor', 'middle')
-      .text('Food Insecure Rate');
+      .text('Food Insecure Rate ');
 
     const xtitle = food_g
       .append('text')
@@ -99,7 +100,7 @@ const FoodChart = ({ step }) => {
       .style('text-anchor', 'middle')
       .attr('font-size', '12px')
       .style('fill', COLOR.TEXT)
-      .text('Countries ranked by food insecure rate');
+      .text('Countries ranked by food insecure rate (2018-2020)');
 
     const lines = food_g
       .append('g')
@@ -126,8 +127,11 @@ const FoodChart = ({ step }) => {
       .join('circle')
       .attr('cx', (d) => x(d.country))
       .attr('cy', (d) => y(d.moderate))
-      .style('fill', COLOR.GRAY)
-      .attr('r', CIRCLE.REGULAR);
+      .style('fill', (d) =>
+        COUNTRIES.includes(d.country) ? COLOR.YELLOW : COLOR.LIGHT_YELLOW
+      )
+      .attr('r', CIRCLE.REGULAR)
+      .style('opacity', 0);
 
     const circleSevere = food_g
       .append('g')
@@ -173,9 +177,7 @@ const FoodChart = ({ step }) => {
       .attr('text-anchor', 'middle')
 
       .style('fill', (d) =>
-        d.country === 'United States of America'
-          ? COLOR.MODERATE_S
-          : COLOR.SEVERE_S
+        d.country === 'United States of America' ? COLOR.GREEN : COLOR.RED
       )
       .attr('font-size', '13px')
       .style('font-weight', 'bold')
@@ -191,8 +193,8 @@ const FoodChart = ({ step }) => {
           !COUNTRIES.includes(d.country)
             ? COLOR.GRAY
             : d.country === 'United States of America'
-            ? COLOR.MODERATE_S
-            : COLOR.SEVERE_S
+            ? COLOR.GREEN
+            : COLOR.RED
         );
 
       label
@@ -200,9 +202,7 @@ const FoodChart = ({ step }) => {
         .ease(d3.easeCubicIn)
         .duration(500)
         .style('fill', (d) =>
-          d.country === 'United States of America'
-            ? COLOR.MODERATE_S
-            : COLOR.SEVERE_S
+          d.country === 'United States of America' ? COLOR.GREEN : COLOR.RED
         );
 
       rank.transition().ease(d3.easeCubicIn).duration(500).style('opacity', 1);
@@ -211,16 +211,14 @@ const FoodChart = ({ step }) => {
         .transition()
         .ease(d3.easeCubicIn)
         .duration(500)
-        .style('fill', (d) =>
-          COUNTRIES.includes(d.country) ? COLOR.MODERATE_S : COLOR.MODERATE_R
-        );
+        .style('opacity', 1);
 
       circleSevere
         .transition()
         .ease(d3.easeCubicIn)
         .duration(500)
         .style('fill', (d) =>
-          COUNTRIES.includes(d.country) ? COLOR.SEVERE_S : COLOR.SEVERE_R
+          COUNTRIES.includes(d.country) ? COLOR.RED : COLOR.LIGHT_RED
         );
     }
   }, [data, step]);
