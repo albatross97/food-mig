@@ -80,9 +80,11 @@ const FoodChart = ({ step }) => {
 
       tooltip
         .html(
-          `<div><strong> ${d.country} </strong></div>
-           <div> Moderate Hunger: <span class='moderate'>${d.moderate}%</span> </div>
-           <div> Severe Hunger: <span class='severe'>${d.severe}%</span> </div>`
+          `<div><strong> ${d.country} </strong></div>` +
+            (step == 3
+              ? `<div> Moderate Hunger: <span class='moderate'>${d.moderate}%</span></div>`
+              : '') +
+            `<div> Severe Hunger: <span class='severe'>${d.severe}%</span> </div>`
         )
         .style('left', `${event.clientX - tooltipW / 2}px`)
         .style('top', `${window.pageYOffset + moderateY - tooltipH - 30}px`)
@@ -91,8 +93,8 @@ const FoodChart = ({ step }) => {
         .selectAll(`.circle-${d.index}`)
         .style('r', CIRCLE.SELECT)
         .style('stroke', COLOR.TEXT)
-        .attr('stroke-width', LINE.REGULAR);
-      food_g.selectAll(`line-${d.index}`).style('stroke', COLOR.TEXT);
+        .attr('stroke-width', LINE.SELECT);
+
       label.transition().duration(300).style('opacity', 0);
     };
 
@@ -213,7 +215,9 @@ const FoodChart = ({ step }) => {
       .attr('cx', (d) => x(d.country))
       .attr('cy', (d) => y(d.severe))
       .style('fill', COLOR.GRAY)
-      .attr('r', CIRCLE.REGULAR);
+      .attr('r', CIRCLE.REGULAR)
+      .on('mouseover', mouseover)
+      .on('mouseout', mouseout);
 
     const label = food_g
       .append('g')
