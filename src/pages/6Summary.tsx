@@ -3,7 +3,7 @@ const Summary = () => {
     <div className="u-section">
       <div className="u-container summary">
         <div className="summary-sub left">
-          <h3>Summary</h3>
+          <h4>Summary</h4>
           <strong>Limited Impact of Food Security</strong>
           <p>
             To conclude, food insecurity has limited impact on migration issue.
@@ -41,7 +41,7 @@ const Summary = () => {
         </div>
         <div className="summary-sub right">
           <div className="reference">
-            <h3>Reference</h3>
+            <h4>Reference</h4>
             <ul>
               <li>
                 Abuelafia, Emmanuel, Giselle Del Carmen, Marta Ruiz-Arranz. “In
@@ -55,15 +55,15 @@ const Summary = () => {
                 millions food insecure across Central America”, UN News, 23
                 February 2021
               </li>
-              <li>
+              {/* <li>
                 Clemens, Michael. “The Real Root Causes of America’s Border
                 Crisis And How Biden Can Address Them.” Foreign Affairs. 7 June
                 2021.
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="data-source">
-            <h3>Data Source</h3>
+            <h4>Data Source</h4>
             <ul>
               <li>
                 <a
@@ -86,6 +86,23 @@ const Summary = () => {
                 joint initiative between World Food Program and the Migration
                 Policy Institute and the International Organization for
                 Migration.
+              </li>
+            </ul>
+          </div>
+          <div className="team">
+            <h4>Team</h4>
+
+            <ul className="oneline">
+              <li>Huiwen Shi</li>
+              <li> Rui Wang</li>
+            </ul>
+            <ul className="oneline">
+              <li>Ziyi Tang</li>
+              <li>Yingu Pan</li>
+            </ul>
+            <ul>
+              <li>
+                MIT 11.454: Big Data, Visualization, and Society - Fall 2021
               </li>
             </ul>
           </div>

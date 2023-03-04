@@ -4,5 +4,25 @@
 }
 
 .charts {
-  margin-top: var(--l);
+  div {
+    margin-top: var(--xl);
+  }
+}
+
+.legends-container2 {
+  display: flex;
+  justify-content: flex-end;
+  transition: opacity 1s;
+  .legends {
+    font-size: var(--sm);
+    line-height: 20px;
+    .legend {
+      display: flex;
+      align-items: center;
+      text-transform: capitalize;
+      .legend-squa {
+        margin-right: var(--s);
+      }
+    }
+  }
 }

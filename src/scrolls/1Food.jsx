@@ -14,7 +14,7 @@ const FoodInsecure = () => {
           <span className="u-red">High Food Insecurity</span> in Northern
           Triangle Region
         </h4>
-        <p> {'>>'} Hover to view detailed information</p>
+        <p className="u-red"> {'>>'} Hover to view detailed information</p>
         <div className="btn-group" onChange={handleStep}>
           <label>
             <input type="radio" value="1" name="tag" defaultChecked />

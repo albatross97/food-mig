@@ -55,10 +55,12 @@ const Grid = () => {
             <span className="3">step3</span>
           </label>
         </div>
-        <div className="legends-container">
+        <div className="legends-container2">
           <div className="legends">
-            <Legend content="moderate" />
-            <Legend content="severe" />
+            <Legend content="does not want to migrate" category={0} />
+            <Legend content="wants to migrate but has no plan" category={1} />
+            <Legend content="has plan but no preparation" category={2} />
+            <Legend content="has plan and preparation" category={3} />
           </div>
         </div>
         <div className="charts">

@@ -23,6 +23,9 @@ const IntroMap = () => {
             population from Mexico, the largest birth country for U.S.
             immigrants, declined 6%.
           </p>
+          <p className="u-red">
+            {'>> '}Hover a country to view detailed information
+          </p>
         </div>
       </div>
       <MapChart />

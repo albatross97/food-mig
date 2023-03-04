@@ -11,7 +11,6 @@ import DonutEco from './5Donut';
 import Summary from './6Summary';
 
 import ProgressBar from '../components/ProgressBar';
-import Footer from './7Footer';
 import DotSurvey from '../scrolls/2DotSurvey';
 import FoodInsecure from '../scrolls/1Food';
 
@@ -29,7 +28,6 @@ function App() {
       <Mig2Eco />
       <DonutEco />
       <Summary />
-      <Footer />
     </div>
   );
 }
