@@ -23,8 +23,8 @@ const DotSurvey = () => {
     <div className="u-section dot">
       <div className="u-container ">
         <h4>
-          <span className="u-red">Survey data: </span> food security & Migration
-          Intention
+          <span className="u-red">Survey Data: </span> Food Insecurity &
+          Migration Intention
         </h4>
         <p className="u-red">
           {' '}

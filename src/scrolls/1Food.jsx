@@ -11,8 +11,8 @@ const FoodInsecure = () => {
     <div className="u-section dot">
       <div className="u-container">
         <h4>
-          <span className="u-red">High Food Insecurity</span> in Northern
-          Triangle Region
+          <span className="u-red">Severe Food Insecurity</span> in the Northern
+          Triangle
         </h4>
         <p className="u-red"> {'>>'} Hover to view detailed information</p>
         <div className="btn-group" onChange={handleStep}>

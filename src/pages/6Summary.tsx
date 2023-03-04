@@ -4,39 +4,32 @@ const Summary = () => {
       <div className="u-container summary">
         <div className="summary-sub left">
           <h4>Summary</h4>
-          <strong>Limited Impact of Food Security</strong>
+          <strong>Limited Impact of Food Insecurity</strong>
           <p>
-            To conclude, food insecurity has limited impact on migration issue.
-            The correlation between food security and migration intention and
-            action are not significant in these three countries.
+            In summary, food insecurity is linked to but has limited impact on
+            the Northern Triangle migration. The relationship between food
+            insecurity and migration action is not strongly correlated, as
+            individuals with better access to food tend to have a greater desire
+            to migrate but are less likely to make concrete plans to do so.
           </p>
-          <strong>Food Insecurity and Migration</strong>
+          <strong>Food Insecurity and Migration Plan</strong>
+
           <p>
-            People with better food supply tend to have greater desire to
-            migrate. Yet their possibility of making solid plan for migration is
-            smaller.
+            One possible explanation for this pattern is that people with fewer
+            worries about their basic needs, such as food, may have more
+            resources and time to consider migration possibility that could
+            improve their living standards. However, even among those with
+            better access to food, the likelihood of making concrete migration
+            plans in the near future is not necessarily higher than those who
+            are food insecure.
           </p>
+          <strong> Complexity of Migration Drive</strong>
           <p>
-            One explanation to this might be, as people need less to worry about
-            basic need for food, they may have more resources and time to think
-            of new possibilities such as migration that may further improve
-            their living standard. However, these better-off people do not
-            necessarily make actual plan for migration in the near future
-            compared with the food insecure.
-          </p>
-          <strong>Migration Issue's Complexity</strong>
-          <p>
-            Migration issue is a complicated and multi-causal subject that
-            require a much wider perspective. Food security shall not be
-            considered as the only solution or even bargaining chip to solve the
-            immigration issue, but rather a bottom line that every nation and
-            individual shall hold and ensure.
-          </p>
-          <p>
-            From the survey, it’s astonishing to see that there is still a large
-            portion of people suffering food insecurity in the triangle region.
-            Ensuring basic human right – the right to food is undoubtedly the
-            first priority.
+            The issue of migration is complex and multifaceted, and requires a
+            broader perspective to fully understand. Food security should not be
+            viewed as the sole solution or bargaining chip to address
+            immigration issues, but rather as a basic human right that every
+            nation and individual should uphold and ensure.
           </p>
         </div>
         <div className="summary-sub right">
@@ -55,11 +48,11 @@ const Summary = () => {
                 millions food insecure across Central America”, UN News, 23
                 February 2021
               </li>
-              {/* <li>
+              <li>
                 Clemens, Michael. “The Real Root Causes of America’s Border
                 Crisis And How Biden Can Address Them.” Foreign Affairs. 7 June
                 2021.
-              </li> */}
+              </li>
             </ul>
           </div>
           <div className="data-source">
@@ -82,10 +75,10 @@ const Summary = () => {
                 </a>
               </li>
               <li>
-                Anonymized data from 5000+ Household Interviews conducted by a
-                joint initiative between World Food Program and the Migration
-                Policy Institute and the International Organization for
-                Migration.
+                Anonymized survey data from 5000+ Household Interviews conducted
+                by a joint initiative between World Food Program and the
+                Migration Policy Institute and the International Organization
+                for Migration.
               </li>
             </ul>
           </div>

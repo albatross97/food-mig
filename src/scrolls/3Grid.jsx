@@ -40,7 +40,7 @@ const Grid = () => {
   return (
     <div className="u-section dot">
       <div className="u-container">
-        <h4>Food security & migration intention</h4>
+        <h4>Food Insecurity & Migration Intention, Plan and Preparation</h4>
         <div className="btn-group" onChange={handleStep}>
           <label>
             <input type="radio" value="1" name="tag" defaultChecked />
@@ -67,12 +67,12 @@ const Grid = () => {
           <GridChart
             step={step}
             data={secureInt}
-            content="food secure's intention"
+            content="food-secure's intention"
           />
           <GridChart
             step={step}
             data={insecureInt}
-            content="food insecure's intention"
+            content="food-insecure's intention"
           />
         </div>
       </div>

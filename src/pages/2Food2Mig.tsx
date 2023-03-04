@@ -45,20 +45,20 @@ const Food2Mig = () => {
       <div className="u-container">
         <div className="card fade1" ref={cardRef}>
           <h3 className="">
-            Is food security<div className="u-red">a solution to</div>
-            migration issue?
+            Is food insecurity <span className="u-red">the root cause</span> of
+            this migration issue?
           </h3>
           <p>
-            Since those three countries are having food security issues and
-            contribute to a large proportion of migration in the US, it is
-            tempting to say that maybe increasing food security is a solution to
-            migration.
+            Given that the Northern Triangle are currently facing food security
+            challenges and account for a significant portion of the migration to
+            the US, some suggest that enhancing food security could potentially
+            serve as a solution to address the issue of migration.
           </p>
           <p>
-            However, the survey{' '}
-            <span> suggests a more complicated outcome </span>
-            than a simple bifurcated answer{' '}
-            <span>based on different food insecurity level</span>.
+            However, the survey below{' '}
+            <span> suggests a more complicated result </span>
+            than a simple bifurcated answer based on{' '}
+            <span>different food insecurity levels</span>.
           </p>
         </div>
       </div>

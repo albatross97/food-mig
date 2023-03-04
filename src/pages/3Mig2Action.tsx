@@ -45,17 +45,16 @@ const Mig2Action = () => {
       <div className="u-container">
         <div className="card fade2" ref={cardRef}>
           <h3>
-            What is the relationship between food insecurity and{' '}
+            How is food insecurity linked to{' '}
             <span className="u-red">
-              migration's intention, plan and preparation?
+              migration intention, plan and preparation?
             </span>
           </h3>
           <p>
-            Instead of asking only the desire to migrate, we look into more
-            detailed aspects of migration other than intention, such as plan and
-            preparation. These factors serve as a stronger indicator for the
-            migration action. We explore the relationship of these factors with
-            food security level.
+            The survey looks into more detailed aspects of migration other than
+            intention, such as plan and preparation. These factors serve as a
+            stronger indicator for the migration action. This report explores
+            the relationship of these factors with food insecurity level.
           </p>
         </div>
       </div>

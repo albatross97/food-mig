@@ -6,23 +6,22 @@ const IntroMap = () => {
       <div className="u-container">
         <div className="card">
           <h3>
-            <div className="u-red">Migration status</div>
-            in the Northern Triangle Region
+            <div className="u-red">Rise in Migration</div>
+            from the Northern Triangle
           </h3>
           <p>
-            Migration from Central America to the U.S. began rising notably in
-            the 1980s, and continued to increase in subsequent decades.
-          </p>
-          <p>
+            Migration across the US-Mexican border has been the subject of
+            political and social debate for many years.{' '}
             <span>
-              More recently, the number of immigrants from the three Northern
-              Triangle nations –– El Salvador, Guatemala, and Honduras rose by
-              25%
+              In the past decade, there is a surge in migration from the
+              Northern Triangle, surpassing Mexico as the largest immigrant
+              group.
             </span>{' '}
-            between 2007 and 2015. During that same period, the immigrant
-            population from Mexico, the largest birth country for U.S.
-            immigrants, declined 6%.
+            Between 2007 and 2015, the number of immigrants from the Northern
+            Triangle countries of Guatemala, Honduras, and El Salvador rose by
+            25%.
           </p>
+
           <p className="u-red">
             {'>> '}Hover a country to view detailed information
           </p>

@@ -45,14 +45,16 @@ const Mig2Eco = () => {
       <div className="u-container">
         <div className="card fade3" ref={cardRef}>
           <h3>
-            How <span className="u-red"> economic status</span> impact migration
-            plan and action?
+            How do <span className="u-red"> economic conditions</span> impact
+            migration plan and action?
           </h3>
           <p>
-            To confirm better off people have are less actions on migration, we
-            need to study the how many people have to work to ensure food
-            security to better understand how economic status impact migration
-            plan and action.
+            Overall, a limited proportion of the population from the Northern
+            Triangle region has made concrete plans to migrate, irrespective of
+            their food security status. To gain a better understanding of the
+            factors driving their primary motive to migrate, namely economic
+            conditions, this report further examines the relationship between
+            their employment status and food security status.
           </p>
         </div>
       </div>

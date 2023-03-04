@@ -1,14 +1,10 @@
 .summary {
-  display: inline-flex;
-  justify-content: center;
+  display: flex;
   gap: var(--xxl);
+  text-align: justify;
 
-  * > div {
-    flex: 1 1;
-  }
-
-  h3 {
-    margin-bottom: var(--m);
+  .summary-sub {
+    flex: 1;
   }
 
   h4 {
@@ -28,6 +24,7 @@
 .data-source,
 .team {
   line-height: var(--ml);
+  text-align: justify;
 
   li {
     font-style: italic;

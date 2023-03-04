@@ -30,7 +30,7 @@ const GridChart = ({ data, content, step }) => {
   const P = data.filter((d) => d.mig_int_global === '1').length / data.length;
   const P2 = data.filter((d) => d.mig_plan_global === '1').length / data.length;
   const COLOR =
-    content === "food secure's intention" ? COLOR_SECURE : COLOR_INSECURE;
+    content === "food-secure's intention" ? COLOR_SECURE : COLOR_INSECURE;
 
   const svg = d3
     .select(svgRef.current)
@@ -122,7 +122,9 @@ const GridChart = ({ data, content, step }) => {
 
   return (
     <div>
-      <div className="grid-label">{content}</div>
+      <div className="grid-label" style={{ color: COLOR.ACTION }}>
+        {content}
+      </div>
       <svg className="grid-chart" ref={svgRef}>
         <g ref={gRef} />
       </svg>
