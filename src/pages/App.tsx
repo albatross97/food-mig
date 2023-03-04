@@ -6,7 +6,7 @@ import IntroMap from './1Map';
 import Food2Mig from './2Food2Mig';
 import Mig2Action from './3Mig2Action';
 import Mig2Eco from './4Mig2Eco';
-import Grid from '../scrolls/4Grid';
+import Grid from '../scrolls/3Grid';
 import DonutEco from './5Donut';
 import Summary from './6Summary';
 
