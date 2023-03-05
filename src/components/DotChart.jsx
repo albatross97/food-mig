@@ -7,8 +7,8 @@ const DotChart = ({ nodes, step }) => {
 
   //d3 chart settings
   const width = 1000;
-  const height = 600;
-  const center = { x: width / 2, y: height * 0.4 };
+  const height = 500;
+  const center = { x: width / 2, y: height * 0.5 };
   const migCenter = [width * 0.2, width * 0.6, width * 0.9];
   const cariCenter = [width * 0.12, width * 0.45, width * 0.7, width * 0.9];
   const COLOR = {
@@ -55,7 +55,7 @@ const DotChart = ({ nodes, step }) => {
     .attr('width', width)
     .attr('height', height)
     .attr('viewBox', `0 0 ${width} ${height}`)
-    .attr('preserveAspectRatio', 'xMinYMid');
+    .attr('preserveAspectRatio', 'xMinYMin');
 
   // tooltip
   const tooltip = d3.select('#tooltip-survey').classed('hidden', true);
@@ -188,52 +188,6 @@ const DotChart = ({ nodes, step }) => {
         d3
           .forceX()
           .strength(forceStrength)
-          .x((d) => migCenter[+d.mig])
-      );
-      simulation.force('y', d3.forceY().strength(forceStrength).y(center.y));
-      simulation.alpha(3).restart();
-
-      const migLabel = svg
-        .append('g')
-        .attr('class', 'migLabel')
-        .selectAll('text')
-        .data(migData)
-        .enter()
-        .append('text')
-        .style('fill', COLOR.TEXT)
-        .attr('x', (d) => migCenter[+d.index])
-        .attr('y', center.y * 1.7)
-        .attr('text-anchor', 'middle')
-        .text((d) => d.name)
-        .style('opacity', 0)
-        .transition()
-        .ease(d3.easeCubicIn)
-        .duration(500)
-        .style('opacity', 1);
-
-      svg
-        .append('g')
-        .attr('class', 'migLabel2')
-        .selectAll('text')
-        .data(migData)
-        .enter()
-        .append('text')
-        .attr('x', (d) => migCenter[+d.index])
-        .attr('y', center.y)
-        .attr('text-anchor', 'middle')
-        .attr('alignment-baseline', 'central')
-        .text((d) => d.value + '%')
-        .style('opacity', 0)
-        .transition()
-        .ease(d3.easeCubicIn)
-        .duration(1000)
-        .style('opacity', 1);
-    } else if (step == 3) {
-      simulation.force(
-        'x',
-        d3
-          .forceX()
-          .strength(forceStrength)
           .x((d) => cariCenter[+d.cari - 1])
       );
 
@@ -265,6 +219,52 @@ const DotChart = ({ nodes, step }) => {
         .enter()
         .append('text')
         .attr('x', (d) => cariCenter[+d.index])
+        .attr('y', center.y)
+        .attr('text-anchor', 'middle')
+        .attr('alignment-baseline', 'central')
+        .text((d) => d.value + '%')
+        .style('opacity', 0)
+        .transition()
+        .ease(d3.easeCubicIn)
+        .duration(1000)
+        .style('opacity', 1);
+    } else if (step == 3) {
+      simulation.force(
+        'x',
+        d3
+          .forceX()
+          .strength(forceStrength)
+          .x((d) => migCenter[+d.mig])
+      );
+      simulation.force('y', d3.forceY().strength(forceStrength).y(center.y));
+      simulation.alpha(3).restart();
+
+      const migLabel = svg
+        .append('g')
+        .attr('class', 'migLabel')
+        .selectAll('text')
+        .data(migData)
+        .enter()
+        .append('text')
+        .style('fill', COLOR.TEXT)
+        .attr('x', (d) => migCenter[+d.index])
+        .attr('y', center.y * 1.7)
+        .attr('text-anchor', 'middle')
+        .text((d) => d.name)
+        .style('opacity', 0)
+        .transition()
+        .ease(d3.easeCubicIn)
+        .duration(500)
+        .style('opacity', 1);
+
+      svg
+        .append('g')
+        .attr('class', 'migLabel2')
+        .selectAll('text')
+        .data(migData)
+        .enter()
+        .append('text')
+        .attr('x', (d) => migCenter[+d.index])
         .attr('y', center.y)
         .attr('text-anchor', 'middle')
         .attr('alignment-baseline', 'central')

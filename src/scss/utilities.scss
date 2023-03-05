@@ -124,7 +124,7 @@ strong {
 
 .u-main {
   position: sticky;
-  top: 0;
+  top: 10%;
 }
 
 .u-red {
@@ -133,6 +133,13 @@ strong {
 
 .u-back-red {
   background-color: var(--primary-dark);
+  color: var(--white);
+  font-weight: 700;
+  padding: 0px 3px;
+}
+
+.u-back-accent {
+  background-color: var(--accent-dark);
   color: var(--white);
   font-weight: 700;
   padding: 0px 3px;
@@ -167,17 +174,17 @@ strong {
   }
 }
 .scroller {
-  z-index: 99;
   .step-wrapper {
     min-height: 100vh;
   }
   .step {
-    text-align: justify;
+    position: relative;
+    z-index: 99;
     width: var(--card-width);
     max-width: 400px;
     margin: auto;
     padding: var(--l) var(--xl);
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;

@@ -74,10 +74,10 @@ const Summary = () => {
                 </a>
               </li>
               <li>
-                Anonymized survey data from 5000+ Household Interviews conducted
-                by a joint initiative between World Food Program and the
-                Migration Policy Institute and the International Organization
-                for Migration.
+                Anonymized survey data from around 5000 Household Interviews
+                conducted by a joint initiative between World Food Program and
+                the Migration Policy Institute and the International
+                Organization for Migration.
               </li>
             </ul>
           </div>

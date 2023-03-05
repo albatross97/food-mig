@@ -85,7 +85,7 @@ const GridChart = ({ data, content, step }) => {
       .text(d3.format('.0%')(P2))
       .style('opacity', 0);
 
-    if (step == 2) {
+    if (step == 1) {
       grid
         .transition()
         .ease(d3.easeCubicIn)
@@ -98,7 +98,7 @@ const GridChart = ({ data, content, step }) => {
         .ease(d3.easeCubicIn)
         .duration(300)
         .style('opacity', 1);
-    } else if (step == 3) {
+    } else if (step == 2) {
       grid
         .transition()
         .ease(d3.easeCubicIn)
