@@ -95,41 +95,12 @@ strong {
   font-weight: 800;
 }
 
-.u-flex {
-  display: flex;
-}
-
-.u-flexColumn {
-  display: flex;
-  flex-direction: column;
-}
-
-.u-flex-justifyCenter {
-  justify-content: center;
-}
-
-.u-flex-alignCenter {
-  align-items: center;
-}
-
-.u-inlineBlock {
-  display: inline-block;
-}
-
 .u-bold {
   font-weight: 900;
 }
 
 .u-textCenter {
   text-align: center;
-}
-
-.u-relative {
-  position: relative;
-}
-
-.u-pointer {
-  cursor: pointer;
 }
 
 .u-link {
@@ -145,15 +116,26 @@ strong {
 .u-section {
   height: 100%;
   min-height: 100vh;
-  // position: relative;
 }
 
 .u-container {
   padding: 0 var(--section-padding);
 }
 
+.u-main {
+  position: sticky;
+  top: 0;
+}
+
 .u-red {
   color: var(--primary-dark);
+}
+
+.u-back-red {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  font-weight: 700;
+  padding: 0px 3px;
 }
 
 .progressMainWrapper {
@@ -182,5 +164,27 @@ strong {
 
   line {
     stroke: var(--grey-light);
+  }
+}
+.scroller {
+  z-index: 99;
+  .step-wrapper {
+    min-height: 100vh;
+  }
+  .step {
+    text-align: justify;
+    width: var(--card-width);
+    max-width: 400px;
+    margin: auto;
+    padding: var(--l) var(--xl);
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 1px 1px 7px -3px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    pointer-events: none;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

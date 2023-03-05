@@ -6,11 +6,10 @@ const Summary = () => {
           <h4>Summary</h4>
           <strong>Limited Impact of Food Insecurity</strong>
           <p>
-            In summary, food insecurity is linked to but has limited impact on
-            the Northern Triangle migration. The relationship between food
+            In summary, while food insecurity is linked to the Northern Triangle
+            migration, its impact is limited. The relationship between food
             insecurity and migration action is not strongly correlated, as
-            individuals with better access to food tend to have a greater desire
-            to migrate but are less likely to make concrete plans to do so.
+            food-secure people tend to have a greater desire to migrate.
           </p>
           <strong>Food Insecurity and Migration Plan</strong>
 
@@ -20,8 +19,8 @@ const Summary = () => {
             resources and time to consider migration possibility that could
             improve their living standards. However, even among those with
             better access to food, the likelihood of making concrete migration
-            plans in the near future is not necessarily higher than those who
-            are food insecure.
+            plans in the near future is not necessarily higher than food
+            insecure people.
           </p>
           <strong> Complexity of Migration Drive</strong>
           <p>
