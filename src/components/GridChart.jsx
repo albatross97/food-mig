@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import { useRef, useState, useEffect } from 'react';
 
 // RENDERING SETUP
-const MARGIN = { TOP: 10, BOTTOM: 25, LEFT: 0, RIGHT: 0 };
+const MARGIN = { TOP: 20, BOTTOM: 25, LEFT: 7, RIGHT: 15 };
 const WIDTH = 800 - MARGIN.LEFT - MARGIN.RIGHT;
 const HEIGHT = 100 - MARGIN.TOP - MARGIN.BOTTOM;
 const PERCOL = 5;
@@ -11,12 +11,14 @@ const COLOR_SECURE = {
   PLAN_NO_PREP: '#DEF1EF',
   PREP_NO_ACTION: '#6BBAAD',
   ACTION: '#478F83',
+  TEXT: '#808080',
 };
 const COLOR_INSECURE = {
   NO: '#efefef',
   PLAN_NO_PREP: '#ffe3e0',
   PREP_NO_ACTION: '#ad2e24',
   ACTION: '#80201B',
+  TEXT: '#808080',
 };
 
 const GridChart = ({ data, content, step }) => {
@@ -24,7 +26,7 @@ const GridChart = ({ data, content, step }) => {
   const gRef = useRef(null);
 
   const PERROW = data.length / PERCOL;
-  const CELLTOTAL = Math.floor(WIDTH / PERROW);
+  const CELLTOTAL = WIDTH / PERROW;
   const CELLSIZE = CELLTOTAL * 0.85;
   const CELLMARGIN = CELLTOTAL * 0.15;
   const P = data.filter((d) => d.mig_int_global === '1').length / data.length;
@@ -45,6 +47,11 @@ const GridChart = ({ data, content, step }) => {
   const grid_g = d3
     .select(gRef.current)
     .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
+
+  const x = d3
+    .scaleLinear()
+    .domain([0, 100])
+    .range([0, WIDTH - CELLMARGIN]);
 
   useEffect(() => {
     grid_g.selectAll('*').remove();
@@ -67,21 +74,30 @@ const GridChart = ({ data, content, step }) => {
       .attr('height', CELLSIZE)
       .attr('fill', COLOR.NO);
 
+    const xaxis = grid_g
+      .append('g')
+      .attr('class', 'xaxis')
+      .call(
+        d3
+          .axisTop(x)
+          .ticks(5)
+          .tickFormat((d, i) => `${d}%`)
+      )
+      .style('color', COLOR.TEXT);
+
     const percentage_yes = grid_g
       .append('text')
-      .attr('transform', `translate(${WIDTH * P}, ${HEIGHT})`)
+      .attr('transform', `translate(${WIDTH * P}, ${HEIGHT + MARGIN.TOP - 5})`)
       .style('text-anchor', 'middle')
       .attr('font-size', '12px')
-      .style('fill', COLOR.TEXT)
       .text(d3.format('.0%')(P))
       .style('opacity', 0);
 
     const percentage_plan = grid_g
       .append('text')
-      .attr('transform', `translate(${WIDTH * P2}, ${HEIGHT})`)
+      .attr('transform', `translate(${WIDTH * P2}, ${HEIGHT + MARGIN.TOP - 5})`)
       .style('text-anchor', 'middle')
       .attr('font-size', '12px')
-      .style('fill', COLOR.TEXT)
       .text(d3.format('.0%')(P2))
       .style('opacity', 0);
 
