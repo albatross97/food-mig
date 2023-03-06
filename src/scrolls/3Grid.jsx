@@ -14,7 +14,7 @@ const Grid = () => {
   const [insecureInt, setInsecureInt] = useState([]);
   const [insecurePrep, setInsecurePrep] = useState([]);
 
-  const [step, setStep] = useState('1');
+  const [step, setStep] = useState(null);
   const onStepEnter = ({ data }) => {
     setStep(data);
   };
@@ -52,21 +52,32 @@ const Grid = () => {
               <Legend content="has plan and preparation" category={3} />
             </div>
           </div>
+
           <div className="charts">
-            <GridChart
-              step={step}
-              data={secureInt}
-              content="food-secure's intention"
-            />
-            <GridChart
-              step={step}
-              data={insecureInt}
-              content="food-insecure's intention"
-            />
+            {secureInt.length && securePrep.length ? (
+              <GridChart
+                step={step}
+                data={secureInt}
+                dataPrep={securePrep}
+                content="food-secure's intention"
+              />
+            ) : (
+              <div>loading</div>
+            )}
+            {insecureInt.length && insecurePrep.length ? (
+              <GridChart
+                step={step}
+                data={insecureInt}
+                dataPrep={insecurePrep}
+                content="food-insecure's intention"
+              />
+            ) : (
+              <div>loading</div>
+            )}
           </div>
         </div>
         <div className="scroller">
-          <Scrollama onStepEnter={onStepEnter} offset="0.8">
+          <Scrollama onStepEnter={onStepEnter} offset="1">
             <Step data={1} key={1}>
               <div className="step-wrapper">
                 <div className="step">

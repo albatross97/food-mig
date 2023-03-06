@@ -1,31 +1,49 @@
 import * as d3 from 'd3';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
+
+//d3 chart settings
+const width = 1000;
+const height = 500;
+const center = { x: width / 2, y: height * 0.5 };
+const migCenter = [width * 0.2, width * 0.6, width * 0.9];
+const cariCenter = [width * 0.12, width * 0.45, width * 0.7, width * 0.9];
+const COLOR = {
+  MARGIN: '#B0D9D5',
+  MODERATE: '#F8AD96',
+  SEVERE: '#EB5832',
+  GRAY: '#e0e0e0',
+  TEXT: '#808080',
+};
+const myColorMain = d3
+  .scaleOrdinal()
+  .range([COLOR.GRAY, COLOR.MARGIN, COLOR.MODERATE, COLOR.SEVERE])
+  .domain([1, 2, 3, 4]);
+const myCariMain = d3
+  .scaleOrdinal()
+  .range(['Secure', 'Marginally', 'Moderately', 'Severely'])
+  .domain([1, 2, 3, 4]);
+
+//bubble settings
+const forceStrength = 0.023;
+const delay = 0.5;
+const collideStrength = 0.7;
+
+//label data
+const cariData = [
+  { name: 'Food Secure', index: 0, value: 44 },
+  { name: 'Marginally Food Secure', index: 1, value: 46 },
+  { name: 'Moderately Insecure', index: 2, value: 9 },
+  { name: 'Severely Insecure', index: 3, value: 1 },
+];
+const migData = [
+  { name: 'Don’t Want to Migrate', index: 0, value: 55.5 },
+  { name: 'Want to Migrate', index: 1, value: 43 },
+  { name: 'Not Sure', index: 2, value: 1.5 },
+];
 
 const DotChart = ({ nodes, step }) => {
   const svgRef = useRef(null);
   const tooltipRef = useRef(null);
-
-  //d3 chart settings
-  const width = 1000;
-  const height = 500;
-  const center = { x: width / 2, y: height * 0.5 };
-  const migCenter = [width * 0.2, width * 0.6, width * 0.9];
-  const cariCenter = [width * 0.12, width * 0.45, width * 0.7, width * 0.9];
-  const COLOR = {
-    MARGIN: '#B0D9D5',
-    MODERATE: '#F8AD96',
-    SEVERE: '#EB5832',
-    GRAY: '#e0e0e0',
-    TEXT: '#808080',
-  };
-  const myColorMain = d3
-    .scaleOrdinal()
-    .range([COLOR.GRAY, COLOR.MARGIN, COLOR.MODERATE, COLOR.SEVERE])
-    .domain([1, 2, 3, 4]);
-  const myCariMain = d3
-    .scaleOrdinal()
-    .range(['Secure', 'Marginally', 'Moderately', 'Severely'])
-    .domain([1, 2, 3, 4]);
 
   //data
   const data = nodes.map((d) => {
@@ -36,20 +54,8 @@ const DotChart = ({ nodes, step }) => {
       y: 0.2 * height + Math.random() * 0.6 * height,
     };
   });
-  const cariData = [
-    { name: 'Food Secure', index: 0, value: 44 },
-    { name: 'Marginally Food Secure', index: 1, value: 46 },
-    { name: 'Moderately Insecure', index: 2, value: 9 },
-    { name: 'Severely Insecure', index: 3, value: 1 },
-  ];
-  const migData = [
-    { name: 'Don’t Want to Migrate', index: 0, value: 55.5 },
-    { name: 'Want to Migrate', index: 1, value: 43 },
-    { name: 'Not Sure', index: 2, value: 1.5 },
-  ];
 
   //svg
-
   const svg = d3
     .select(svgRef.current)
     .attr('width', width)
@@ -58,7 +64,7 @@ const DotChart = ({ nodes, step }) => {
     .attr('preserveAspectRatio', 'xMinYMin');
 
   // tooltip
-  const tooltip = d3.select('#tooltip-survey').classed('hidden', true);
+  const tooltip = d3.select(tooltipRef.current).classed('hidden', true);
   const mouseover = function (event, d) {
     d3.select(this).attr('fill', '#ff6666').attr('r', 5);
     // console.log(d.x, event.layerX, event.pageX);
@@ -97,13 +103,7 @@ const DotChart = ({ nodes, step }) => {
     svg.selectAll('line').remove();
   };
 
-  //bubble settings
-  const forceStrength = 0.023;
-  const delay = 0.5;
-  const chargeStrength = -1;
-  const collideStrength = 0.7;
-
-  useEffect(() => {
+  useMemo(() => {
     svg.selectAll('*').remove();
 
     let bubbles = svg
@@ -144,7 +144,7 @@ const DotChart = ({ nodes, step }) => {
       .stop();
 
     // animation
-    if (step == 1) {
+    if (step === 1) {
       simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
       simulation.alpha(3).restart();
 
@@ -182,7 +182,7 @@ const DotChart = ({ nodes, step }) => {
         .transition()
         .duration(1000)
         .style('opacity', 1);
-    } else if (step == 2) {
+    } else if (step === 2) {
       simulation.force(
         'x',
         d3
@@ -228,7 +228,7 @@ const DotChart = ({ nodes, step }) => {
         .ease(d3.easeCubicIn)
         .duration(1000)
         .style('opacity', 1);
-    } else if (step == 3) {
+    } else if (step === 3) {
       simulation.force(
         'x',
         d3

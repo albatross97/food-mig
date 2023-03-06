@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useMemo } from 'react';
 
 // RENDERING SETUP
 const MARGIN = { TOP: 20, BOTTOM: 25, LEFT: 7, RIGHT: 15 };
@@ -21,39 +21,50 @@ const COLOR_INSECURE = {
   TEXT: '#808080',
 };
 
-const GridChart = ({ data, content, step }) => {
+const GridChart = ({ data, dataPrep, content, step }) => {
   const svgRef = useRef(null);
   const gRef = useRef(null);
 
-  const PERROW = data.length / PERCOL;
-  const CELLTOTAL = WIDTH / PERROW;
-  const CELLSIZE = CELLTOTAL * 0.85;
-  const CELLMARGIN = CELLTOTAL * 0.15;
-  const P = data.filter((d) => d.mig_int_global === '1').length / data.length;
-  const P2 = data.filter((d) => d.mig_plan_global === '1').length / data.length;
-  const COLOR =
-    content === "food-secure's intention" ? COLOR_SECURE : COLOR_INSECURE;
+  const PERROW = useMemo(() => data.length / PERCOL, [data]);
+  const CELLTOTAL = useMemo(() => WIDTH / PERROW, [data]);
+  const CELLSIZE = useMemo(() => CELLTOTAL * 0.85, [data]);
+  const CELLMARGIN = useMemo(() => CELLTOTAL * 0.15, [data]);
 
-  const svg = d3
-    .select(svgRef.current)
-    .attr(
-      'viewBox',
-      `0 0 ${WIDTH + MARGIN.LEFT + MARGIN.RIGHT} ${
-        HEIGHT + MARGIN.TOP + MARGIN.BOTTOM
-      }`
-    )
-    .attr('preserveAspectRatio', 'xMinYMid meet');
-
-  const grid_g = d3
-    .select(gRef.current)
-    .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
-
-  const x = d3
-    .scaleLinear()
-    .domain([0, 100])
-    .range([0, WIDTH - CELLMARGIN]);
+  const P = useMemo(
+    () => data.filter((d) => d.mig_int_global === '1').length / data.length,
+    [data]
+  );
+  const P2 = useMemo(
+    () => data.filter((d) => d.mig_plan_global === '1').length / data.length,
+    [data]
+  );
+  const P_prep = useMemo(
+    () =>
+      dataPrep.filter((d) => d.mig_plan_global === '1').length /
+      dataPrep.length,
+    [dataPrep]
+  );
+  const COLOR = useMemo(
+    () =>
+      content === "food-secure's intention" ? COLOR_SECURE : COLOR_INSECURE,
+    [content]
+  );
 
   useEffect(() => {
+    const svg = d3
+      .select(svgRef.current)
+      .attr(
+        'viewBox',
+        `0 0 ${WIDTH + MARGIN.LEFT + MARGIN.RIGHT} ${
+          HEIGHT + MARGIN.TOP + MARGIN.BOTTOM
+        }`
+      )
+      .attr('preserveAspectRatio', 'xMinYMid meet');
+
+    const grid_g = d3
+      .select(gRef.current)
+      .attr('transform', `translate(${MARGIN.LEFT}, ${MARGIN.TOP})`);
+
     grid_g.selectAll('*').remove();
 
     const grid = grid_g
@@ -73,6 +84,11 @@ const GridChart = ({ data, content, step }) => {
       .attr('width', CELLSIZE)
       .attr('height', CELLSIZE)
       .attr('fill', COLOR.NO);
+
+    const x = d3
+      .scaleLinear()
+      .domain([0, 100])
+      .range([0, WIDTH - CELLMARGIN]);
 
     const xaxis = grid_g
       .append('g')
@@ -101,7 +117,18 @@ const GridChart = ({ data, content, step }) => {
       .text(d3.format('.0%')(P2))
       .style('opacity', 0);
 
-    if (step == 1) {
+    const percentage_plan_scale = grid_g
+      .append('text')
+      .attr(
+        'transform',
+        `translate(${WIDTH * P_prep}, ${HEIGHT + MARGIN.TOP - 5})`
+      )
+      .style('text-anchor', 'middle')
+      .attr('font-size', '12px')
+      .text(d3.format('.0%')(P_prep))
+      .style('opacity', 0);
+
+    if (step === 1) {
       grid
         .transition()
         .ease(d3.easeCubicIn)
@@ -114,7 +141,7 @@ const GridChart = ({ data, content, step }) => {
         .ease(d3.easeCubicIn)
         .duration(300)
         .style('opacity', 1);
-    } else if (step == 2) {
+    } else if (step === 2) {
       grid
         .transition()
         .ease(d3.easeCubicIn)
@@ -133,8 +160,29 @@ const GridChart = ({ data, content, step }) => {
         .ease(d3.easeCubicIn)
         .duration(300)
         .style('opacity', 1);
+    } else if (step === 3) {
+      grid
+        .data(dataPrep)
+        .transition()
+        .ease(d3.easeCubicIn)
+        .duration(300)
+        .attr('fill', (d) =>
+          d.mig_int_global === '0'
+            ? COLOR.NO
+            : d.mig_plan_global === '0'
+            ? COLOR.PLAN_NO_PREP
+            : d.mig_prep_global === '0'
+            ? COLOR.PREP_NO_ACTION
+            : COLOR.ACTION
+        );
+
+      percentage_plan_scale
+        .transition()
+        .ease(d3.easeCubicIn)
+        .duration(300)
+        .style('opacity', 1);
     }
-  }, [step, data]);
+  }, [step, data, dataPrep]);
 
   return (
     <div>

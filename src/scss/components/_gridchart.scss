@@ -8,6 +8,9 @@
     margin-top: var(--xl);
   }
 }
+.loading {
+  text-align: center;
+}
 
 .legends-container2 {
   display: flex;
@@ -16,6 +19,7 @@
   .legends {
     font-size: var(--sm);
     line-height: 20px;
+    margin-top: var(--s);
     .legend {
       display: flex;
       align-items: center;
