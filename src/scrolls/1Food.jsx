@@ -12,7 +12,7 @@ const FoodInsecure = () => {
   return (
     <div className="u-section dot">
       <div className="u-container">
-        <div className="">
+        <div className="u-main" id="food-main">
           <h4>
             <span className="u-red">Severe Food Insecurity</span> in the
             Northern Triangle

@@ -69,10 +69,10 @@ const FoodChart = ({ step }) => {
   }, []);
   useEffect(() => {
     food_g.selectAll('*').remove();
-
     const mouseover = (event, d) => {
       let tooltipW = tooltipRef.current.clientWidth;
       let tooltipH = tooltipRef.current.clientHeight;
+      let mainH = d3.select('#food-main').node().getBoundingClientRect()['y'];
       let moderateY = food_g
         .select(`.line-${d.index}`)
         .node()
@@ -81,13 +81,13 @@ const FoodChart = ({ step }) => {
       tooltip
         .html(
           `<div><strong> ${d.country} </strong></div>` +
-            (step == 3
+            (step === 3
               ? `<div> Moderate Hunger: <span class='moderate'>${d.moderate}%</span></div>`
               : '') +
             `<div> Severe Hunger: <span class='severe'>${d.severe}%</span> </div>`
         )
-        .style('left', `${event.clientX - tooltipW / 2}px`)
-        .style('top', `${window.pageYOffset + moderateY - tooltipH - 30}px`)
+        .style('left', `${event.layerX - tooltipW / 2}px`)
+        .style('top', `${moderateY - mainH - tooltipH - 30}px`)
         .classed('hidden', false);
       food_g
         .selectAll(`.circle-${d.index}`)
@@ -312,6 +312,7 @@ const FoodChart = ({ step }) => {
   return (
     <div id="food-container">
       <div id="tooltip-food" className="hidden" ref={tooltipRef}></div>
+
       <svg className="food-chart" ref={svgRef}>
         <g ref={gRef} />
       </svg>
