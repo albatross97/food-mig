@@ -34,12 +34,18 @@ const FoodInsecure = () => {
             <Step data={1} key={1}>
               <div className="step-wrapper">
                 <div className="step">
-                  <h4>4,498 Survey responses</h4>
+                  <h4>Severe food insecurity</h4>
                   <p>
-                    In April 2021, the World Food Programme (WFP) conducted a
-                    face-to-face survey of{' '}
-                    <span className="u-back-red">4,498 responses</span> in the
-                    Northern Triangle -- El Salvador, Guatemala, and Honduras.
+                    The prevalence of severe food insecurity is significantly
+                    higher in{' '}
+                    <span className="u-back-red">
+                      the Northern Triangle, where over 13.8% the population
+                    </span>{' '}
+                    is expected to experience it, in contrast to{' '}
+                    <span className="u-back-accent">
+                      the US, where less than 1% people
+                    </span>{' '}
+                    are confronting a similar challenge.
                   </p>
                 </div>
               </div>
@@ -47,15 +53,14 @@ const FoodInsecure = () => {
             <Step data={2} key={2}>
               <div className="step-wrapper">
                 <div className="step">
-                  <h4>The majority are suffering from food insecurity</h4>
+                  <h4>Gap between countries</h4>
                   <p>
-                    The participants are classified into four groups based on{' '}
-                    <a
-                      href="https://www.wfp.org/publications/consolidated-approach-reporting-indicators-food-security-cari-guidelines"
-                      className="u-back-red u-link">
-                      CARI food security indicators
-                    </a>{' '}
-                    given from WFP.
+                    The Northern Triangle has been grappling with food
+                    insecurity for many years. This has been one of the
+                    significant driving forces behind the migration of people
+                    from these countries to the United States. Many individuals
+                    and families feel that they have no choice but to leave in
+                    search of a better life.
                   </p>
                 </div>
               </div>
@@ -63,12 +68,15 @@ const FoodInsecure = () => {
             <Step data={3} key={3}>
               <div className="step-wrapper">
                 <div className="step">
-                  <h4>Around half have migration desire</h4>
+                  <h4>About half is experiencing moderate food insecurity</h4>
                   <p>
-                    <span className="u-back-red">Around half</span> of household
-                    respondents indicated a desire to migrate, but{' '}
-                    <span className="u-back-red">only 6% are making plans</span>{' '}
-                    to do so.
+                    In the Northern Triangle regions, a significant proportion
+                    of the population,{' '}
+                    <span className="u-back-red">above 45.6%</span>, is expected
+                    to encounter moderate food insecurity. This is in contrast
+                    to the US, where{' '}
+                    <span className="u-back-accent">approximately 8%</span>{' '}
+                    people are confronting a comparable situation.
                   </p>
                 </div>
               </div>

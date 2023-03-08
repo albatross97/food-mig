@@ -42,10 +42,11 @@
   --xl: 40px;
   --xxl: 60px;
   --section-padding: 10%;
-  --card-width: 40%;
+  --card-width: 50%;
+  --min-card-width: 400px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   :root {
     --sm: 12px;
     --m: 14px;
@@ -54,6 +55,7 @@
     --xxl: 40px;
     --section-padding: 5%;
     --card-width: 80%;
+    --min-card-width: 0px;
   }
 
   small {
@@ -116,6 +118,7 @@ strong {
 .u-section {
   height: 100%;
   min-height: 100vh;
+  position: relative;
 }
 
 .u-container {

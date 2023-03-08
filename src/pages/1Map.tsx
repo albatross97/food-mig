@@ -3,6 +3,7 @@ import MapChart from '../components/MapChart';
 const IntroMap = () => {
   return (
     <div className="u-section map">
+      <MapChart />
       <div className="u-container">
         <div className="card">
           <h3>
@@ -27,7 +28,6 @@ const IntroMap = () => {
           </p>
         </div>
       </div>
-      <MapChart />
     </div>
   );
 };

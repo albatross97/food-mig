@@ -60,9 +60,9 @@ const MapChart = () => {
       tooltip
         .style('left', () => {
           let tooltipW = tooltipRef.current.clientWidth;
-          return `${event.pageX - tooltipW}px`;
+          return `${event.layerX - tooltipW}px`;
         })
-        .style('top', () => `${event.pageY}px`);
+        .style('top', () => `${event.layerY}px`);
     };
 
     const mouseout = function (event, d) {

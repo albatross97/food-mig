@@ -239,6 +239,25 @@ const FoodChart = ({ step }) => {
       .style('font-weight', 'bold')
       .text((d) => d.country);
 
+    const rate = food_g
+      .append('g')
+      .attr('class', 'rates')
+      .selectAll('text')
+      .data(data.filter((d) => COUNTRIES.includes(d.country)))
+      .join('text')
+      .attr('y', (d) =>
+        d.country === 'El Salvador' ? y(d.severe) + 30 : y(d.severe) + 20
+      )
+      .attr('x', (d) => x(d.country))
+      .attr('text-anchor', 'middle')
+
+      .style('fill', (d) =>
+        d.country === 'United States of America' ? COLOR.GREEN : COLOR.RED
+      )
+      .attr('font-size', '12px')
+      .style('font-weight', 'bold')
+      .text((d) => d.severe + '%');
+
     const rank = food_g
       .append('g')
       .attr('class', 'ranks')
@@ -260,6 +279,7 @@ const FoodChart = ({ step }) => {
       .style('opacity', 0);
 
     if (step == 2) {
+      rate.style('opacity', 0);
       circleSevere
         .transition()
         .ease(d3.easeCubicIn)
@@ -282,6 +302,8 @@ const FoodChart = ({ step }) => {
 
       rank.transition().ease(d3.easeCubicIn).duration(500).style('opacity', 1);
     } else if (step == 3) {
+      rate.style('opacity', 0);
+
       lines
         .transition()
         .delay((d, i) => 500)
