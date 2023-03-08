@@ -3,6 +3,7 @@
   padding-top: 15%;
   z-index: 2;
   width: var(--card-width);
+  min-width: var(--min-card-width);
 
   p {
     margin-left: var(--xl);
