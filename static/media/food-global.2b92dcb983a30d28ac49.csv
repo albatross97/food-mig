@@ -1,0 +1,120 @@
+index,country,severe,moderate
+211,Switzerland,0.5,2
+108,Kazakhstan,0.5,2.3
+11,Austria,0.9,3
+256,Luxembourg,0.8,3.1
+79,Germany,0.7,3.4
+110,Japan,0.7,3.4
+255,Belgium,1.1,3.7
+229,United Kingdom of Great Britain and Northern Ireland,0.7,3.9
+162,Norway,1,4.1
+167,Czechia,0.8,4.2
+134,Malta,0.9,4.3
+200,Singapore,0.9,4.5
+150,Netherlands,1.4,4.7
+54,Denmark,1.1,5
+117,Republic of Korea,0.6,5.1
+210,Sweden,1.2,5.3
+173,Poland,0.5,5.8
+68,France,0.7,5.8
+33,Canada,0.9,5.8
+185,Russian Federation,0.5,6
+199,Slovakia,1.1,6
+101,Indonesia,0.7,6.2
+237,Viet Nam,0.5,6.5
+99,Iceland,1.5,6.6
+106,Italy,1.2,6.7
+113,Kyrgyzstan,1.1,7
+63,Estonia,0.8,7.9
+231,United States of America,0.8,8
+67,Finland,1.9,8
+198,Slovenia,0.5,8.2
+104,Ireland,4.3,8.3
+97,Hungary,1.4,8.6
+84,Greece,1.7,8.6
+203,Spain,1.8,8.8
+52,Azerbaijan,0.5,8.9
+80,Bosnia and Herzegovina,2,10
+119,Latvia,0.7,10.2
+98,Croatia,1.3,11
+126,Lithuania,1.7,11.3
+174,Portugal,3.2,11.5
+272,Serbia,2.6,12
+118,Kuwait,4.9,12.2
+10,Australia,3.3,12.3
+1,Armenia,1.1,12.7
+27,Bulgaria,2.4,13.2
+273,Montenegro,2.8,13.5
+105,Israel,1.9,13.7
+183,Romania,3.4,13.9
+156,New Zealand,3.9,14
+66,Fiji,2,14.3
+196,Seychelles,3.3,14.7
+48,Costa Rica,2.6,15.3
+4,Algeria,6.9,17.6
+154,North Macedonia,5,17.7
+40,Chile,4.3,17.9
+131,Malaysia,7.5,18.7
+235,Uzbekistan,4,19.7
+28,Myanmar,1.9,22.2
+219,Tonga,6,23.2
+155,Vanuatu,2.4,23.3
+21,Brazil,3.5,23.5
+234,Uruguay,6.7,23.5
+244,Samoa,3.4,23.6
+137,Mauritius,8.3,24.2
+222,Tunisia,10.7,25.1
+138,Mexico,5.8,26.1
+141,Mongolia,4.9,26.2
+299,Palestine,4.4,26.3
+146,Republic of Moldova,4.5,27.2
+59,Egypt,6.7,27.8
+120,Lao People's Democratic Republic,8.9,29.4
+216,Thailand,8.5,29.8
+16,Bangladesh,10.5,31.9
+58,Ecuador,11.6,32.7
+3,Albania,8.8,33.8
+35,Cabo Verde,7.6,35.1
+9,Argentina,12.6,35.8
+149,Nepal,12,36.4
+124,Libya,18.6,37.4
+73,Georgia,9.5,39.7
+136,Mauritania,6.5,39.8
+83,Kiribati,7.9,40.9
+195,Senegal,13.6,40.9
+102,Iran (Islamic Republic of),8.7,42.5
+171,Philippines,4,42.7
+115,Cambodia,13.4,44.8
+202,South Africa,19.3,44.9
+95,Honduras,14.6,45.6
+60,El Salvador,13.8,47.1
+170,Peru,19.2,47.8
+233,Burkina Faso,15.4,47.9
+276,Sudan,16.8,49.4
+89,Guatemala,19.2,49.7
+122,Lesotho,27,49.7
+81,Ghana,8.6,50.2
+20,Botswana,22.2,50.8
+251,Zambia,23.2,51.4
+32,Cameroon,26.7,55.8
+75,Gambia,25.7,56
+238,Ethiopia,16.4,56.3
+215,United Republic of Tanzania,24.7,56.4
+147,Namibia,32.1,57.6
+159,Nigeria,21.4,57.7
+2,Afghanistan,19.8,63.1
+209,Eswatini,30.8,64.1
+114,Kenya,25.7,68.5
+226,Uganda,21.7,69.2
+250,Democratic Republic of the Congo,38.5,69.2
+181,Zimbabwe,32.1,69.8
+144,Mozambique,40.5,71.1
+7,Angola,26.9,73.5
+90,Guinea,49.7,74.1
+201,Somalia,43,79.1
+123,Liberia,37.3,80.6
+37,Central African Republic,61.8,81.3
+130,Malawi,51.4,81.8
+197,Sierra Leone,31.8,83.9
+277,South Sudan,62,84.8
+46,Congo,51.7,88.3
