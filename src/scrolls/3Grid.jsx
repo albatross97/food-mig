@@ -1,12 +1,10 @@
 import { Legend, GridChart } from '../components/GridChart.jsx';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import * as d3 from 'd3';
 import { Scrollama, Step } from 'react-scrollama';
 
-import insecureIntFile from '../data/food-insecure-mig-int.csv';
-import insecurePrepFile from '../data/food-insecure-mig-prep.csv';
-import secureIntFile from '../data/food-secure-mig-int.csv';
-import securePrepFile from '../data/food-secure-mig-prep.csv';
+import insecureIntFile from '../data/mig_food_insecure.csv';
+import secureIntFile from '../data/mig_food_secure.csv';
 
 const Grid = () => {
   const [secureInt, setSecureInt] = useState([]);
@@ -19,22 +17,35 @@ const Grid = () => {
     setStep(data);
   };
 
+  const calcPercentage = useCallback((data, length, filter = false) => {
+    if (filter) {
+      data = data.filter((d) => +d.mig_intensity > 1);
+    }
+    const calcMap = d3.rollup(
+      data.sort((a, b) => d3.descending(+a.mig_intensity, +b.mig_intensity)),
+      (arr) => Math.round((length * arr.length) / data.length),
+      (d) => +d.mig_intensity
+    );
+    const calcArray = Array.from(calcMap, ([mig_intensity, count]) =>
+      Array(count)
+        .fill()
+        .map((d, i) => {
+          return {
+            index: `mig${mig_intensity}-${i}`,
+            mig_intensity: mig_intensity,
+          };
+        })
+    );
+    return calcArray.flat();
+  }, []);
+
   useEffect(() => {
-    Promise.all([
-      d3.csv(secureIntFile),
-      d3.csv(securePrepFile),
-      d3.csv(insecureIntFile),
-      d3.csv(insecurePrepFile),
-    ]).then(
-      ([secureIntData, securePrepData, insecureIntData, insecurePrepData]) => {
-        setSecureInt(
-          secureIntData.sort((a, b) =>
-            d3.descending(+a.mig_int_global, +b.mig_int_global)
-          )
-        );
-        setSecurePrep(securePrepData);
-        setInsecureInt(insecureIntData);
-        setInsecurePrep(insecurePrepData);
+    Promise.all([d3.csv(secureIntFile), d3.csv(insecureIntFile)]).then(
+      ([secureIntData, insecureIntData]) => {
+        setSecureInt(calcPercentage(secureIntData, 400));
+        setSecurePrep(calcPercentage(secureIntData, 400, true));
+        setInsecureInt(calcPercentage(insecureIntData, 400));
+        setInsecurePrep(calcPercentage(insecureIntData, 400, true));
       }
     );
   }, []);
@@ -132,7 +143,7 @@ const Grid = () => {
                   </li>
                   <li>
                     <span className="u-back-red">
-                      19% among the food-insecure
+                      20% among the food-insecure
                     </span>
                   </li>
                   <p>

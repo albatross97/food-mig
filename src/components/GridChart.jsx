@@ -31,17 +31,15 @@ const GridChart = ({ data, dataPrep, content, step }) => {
   const CELLMARGIN = useMemo(() => CELLTOTAL * 0.15, [data]);
 
   const P = useMemo(
-    () => data.filter((d) => d.mig_int_global === '1').length / data.length,
+    () => data.filter((d) => +d.mig_intensity > 1).length / data.length,
     [data]
   );
   const P2 = useMemo(
-    () => data.filter((d) => d.mig_plan_global === '1').length / data.length,
+    () => data.filter((d) => +d.mig_intensity > 2).length / data.length,
     [data]
   );
   const P_prep = useMemo(
-    () =>
-      dataPrep.filter((d) => d.mig_plan_global === '1').length /
-      dataPrep.length,
+    () => dataPrep.filter((d) => +d.mig_intensity > 2).length / dataPrep.length,
     [dataPrep]
   );
   const COLOR = useMemo(
@@ -134,7 +132,7 @@ const GridChart = ({ data, dataPrep, content, step }) => {
         .ease(d3.easeCubicIn)
         .duration(300)
         .attr('fill', (d) =>
-          d.mig_int_global === '0' ? COLOR.NO : COLOR.PLAN_NO_PREP
+          +d.mig_intensity === 1 ? COLOR.NO : COLOR.PLAN_NO_PREP
         );
       percentage_yes
         .transition()
@@ -147,11 +145,11 @@ const GridChart = ({ data, dataPrep, content, step }) => {
         .ease(d3.easeCubicIn)
         .duration(300)
         .attr('fill', (d) =>
-          d.mig_int_global === '0'
+          +d.mig_intensity === 1
             ? COLOR.NO
-            : d.mig_plan_global === '0'
+            : +d.mig_intensity === 2
             ? COLOR.PLAN_NO_PREP
-            : d.mig_prep_global === '0'
+            : +d.mig_intensity === 3
             ? COLOR.PREP_NO_ACTION
             : COLOR.ACTION
         );
@@ -167,11 +165,11 @@ const GridChart = ({ data, dataPrep, content, step }) => {
         .ease(d3.easeCubicIn)
         .duration(300)
         .attr('fill', (d) =>
-          d.mig_int_global === '0'
+          +d.mig_intensity === 1
             ? COLOR.NO
-            : d.mig_plan_global === '0'
+            : +d.mig_intensity === 2
             ? COLOR.PLAN_NO_PREP
-            : d.mig_prep_global === '0'
+            : +d.mig_intensity === 3
             ? COLOR.PREP_NO_ACTION
             : COLOR.ACTION
         );
