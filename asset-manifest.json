@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/northern-triangle/static/css/main.b57a70fa.css",
-    "main.js": "/northern-triangle/static/js/main.70993693.js",
-    "static/media/dot.csv": "/northern-triangle/static/media/dot.470be0e5e9ed3c1e76ef.csv",
-    "static/media/mig_food_secure.csv": "/northern-triangle/static/media/mig_food_secure.47cfbdd01e6e378e0b34.csv",
-    "static/media/mig_food_insecure.csv": "/northern-triangle/static/media/mig_food_insecure.a29208900d1f80080525.csv",
-    "static/media/mig_rate.csv": "/northern-triangle/static/media/mig_rate.77852f323c04dacdcf03.csv",
-    "static/media/food-global.csv": "/northern-triangle/static/media/food-global.2b92dcb983a30d28ac49.csv",
-    "index.html": "/northern-triangle/index.html",
-    "main.b57a70fa.css.map": "/northern-triangle/static/css/main.b57a70fa.css.map",
-    "main.70993693.js.map": "/northern-triangle/static/js/main.70993693.js.map"
+    "main.css": "/food-migration/static/css/main.b57a70fa.css",
+    "main.js": "/food-migration/static/js/main.edc641c9.js",
+    "static/media/dot.csv": "/food-migration/static/media/dot.470be0e5e9ed3c1e76ef.csv",
+    "static/media/mig_food_secure.csv": "/food-migration/static/media/mig_food_secure.47cfbdd01e6e378e0b34.csv",
+    "static/media/mig_food_insecure.csv": "/food-migration/static/media/mig_food_insecure.a29208900d1f80080525.csv",
+    "static/media/mig_rate.csv": "/food-migration/static/media/mig_rate.77852f323c04dacdcf03.csv",
+    "static/media/food-global.csv": "/food-migration/static/media/food-global.2b92dcb983a30d28ac49.csv",
+    "index.html": "/food-migration/index.html",
+    "main.b57a70fa.css.map": "/food-migration/static/css/main.b57a70fa.css.map",
+    "main.edc641c9.js.map": "/food-migration/static/js/main.edc641c9.js.map"
   },
   "entrypoints": [
     "static/css/main.b57a70fa.css",
-    "static/js/main.70993693.js"
+    "static/js/main.edc641c9.js"
   ]
 }
