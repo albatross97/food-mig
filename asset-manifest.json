@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/food-migration/static/css/main.b57a70fa.css",
-    "main.js": "/food-migration/static/js/main.edc641c9.js",
-    "static/media/dot.csv": "/food-migration/static/media/dot.470be0e5e9ed3c1e76ef.csv",
-    "static/media/mig_food_secure.csv": "/food-migration/static/media/mig_food_secure.47cfbdd01e6e378e0b34.csv",
-    "static/media/mig_food_insecure.csv": "/food-migration/static/media/mig_food_insecure.a29208900d1f80080525.csv",
-    "static/media/mig_rate.csv": "/food-migration/static/media/mig_rate.77852f323c04dacdcf03.csv",
-    "static/media/food-global.csv": "/food-migration/static/media/food-global.2b92dcb983a30d28ac49.csv",
-    "index.html": "/food-migration/index.html",
-    "main.b57a70fa.css.map": "/food-migration/static/css/main.b57a70fa.css.map",
-    "main.edc641c9.js.map": "/food-migration/static/js/main.edc641c9.js.map"
+    "main.css": "/food-mig/static/css/main.b57a70fa.css",
+    "main.js": "/food-mig/static/js/main.5966a01f.js",
+    "static/media/dot.csv": "/food-mig/static/media/dot.470be0e5e9ed3c1e76ef.csv",
+    "static/media/mig_food_secure.csv": "/food-mig/static/media/mig_food_secure.47cfbdd01e6e378e0b34.csv",
+    "static/media/mig_food_insecure.csv": "/food-mig/static/media/mig_food_insecure.a29208900d1f80080525.csv",
+    "static/media/mig_rate.csv": "/food-mig/static/media/mig_rate.77852f323c04dacdcf03.csv",
+    "static/media/food-global.csv": "/food-mig/static/media/food-global.2b92dcb983a30d28ac49.csv",
+    "index.html": "/food-mig/index.html",
+    "main.b57a70fa.css.map": "/food-mig/static/css/main.b57a70fa.css.map",
+    "main.5966a01f.js.map": "/food-mig/static/js/main.5966a01f.js.map"
   },
   "entrypoints": [
     "static/css/main.b57a70fa.css",
-    "static/js/main.edc641c9.js"
+    "static/js/main.5966a01f.js"
   ]
 }
